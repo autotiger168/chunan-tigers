@@ -1,0 +1,1309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>三十年人生計畫</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+/* Layout: sticky tab bar over a calm sage-paper page; one column of panels, 2-up on wide screens. */
+:root{
+  --bg:#F2F4EF; --surface:#FFFFFF; --sunk:#E8ECE5; --fg:#1B231F; --muted:#5D6963; --line:#D3DBD1;
+  --accent:#2C6953; --accent-ink:#FFFFFF; --warn:#A35E22; --danger:#B0443F;
+  --c-health:#3A8761; --c-family:#BF6C27; --c-money:#9C7B1C; --c-travel:#2A739B;
+  --c-social:#B25252; --c-learn:#6654A3; --c-career:#536576;
+  --serif:'Noto Serif TC','Songti TC','PMingLiU',serif;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101412; --surface:#181D1A; --sunk:#0B0E0C; --fg:#E3E9E4; --muted:#98A49D; --line:#2A332E;
+  --accent:#71B99B; --accent-ink:#0D1411; --warn:#D99555; --danger:#E07772;
+  --c-health:#6CC198; --c-family:#E39A57; --c-money:#D3B04E; --c-travel:#62A9D2;
+  --c-social:#E08484; --c-learn:#A796E0; --c-career:#93A5B6; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101412; --surface:#181D1A; --sunk:#0B0E0C; --fg:#E3E9E4; --muted:#98A49D; --line:#2A332E;
+  --accent:#71B99B; --accent-ink:#0D1411; --warn:#D99555; --danger:#E07772;
+  --c-health:#6CC198; --c-family:#E39A57; --c-money:#D3B04E; --c-travel:#62A9D2;
+  --c-social:#E08484; --c-learn:#A796E0; --c-career:#93A5B6; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{min-height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.65}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0;line-height:1.3}
+h1{font-size:clamp(26px,4.4vw,38px)}
+h2{font-size:21px}
+h3{font-size:16px}
+p{margin:0}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.label{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* lock */
+.lock{min-height:100vh;display:grid;place-items:center;padding-block:40px;padding-inline:16px}
+.lock-card{width:min(460px,100%);display:grid;gap:16px}
+.lock-card .seal{font-family:var(--serif);font-size:44px;font-weight:700;letter-spacing:.06em}
+.lock-card .seal span{color:var(--accent)}
+
+/* app chrome */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in oklab,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-inner{max-width:1120px;margin:0 auto;padding-block:8px;padding-inline:16px;display:flex;align-items:center;gap:12px}
+.brand{font-family:var(--serif);font-weight:700;font-size:17px;white-space:nowrap}
+.brand span{color:var(--accent)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{border:0;background:none;color:var(--muted);font:inherit;font-size:14px;padding:7px 11px;border-radius:8px;white-space:nowrap;cursor:pointer}
+nav.tabs button:hover{color:var(--fg);background:var(--sunk)}
+nav.tabs button[aria-current="page"]{color:var(--fg);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);font-weight:500}
+.save-state{font-size:12px;color:var(--muted);white-space:nowrap}
+.wrap{max-width:1120px;margin:0 auto;padding-block:24px 72px;padding-inline:16px;display:grid;gap:20px}
+
+/* building blocks */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px;min-width:0;align-content:start}
+.panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.stack{display:grid;gap:8px}
+.banner{border:1px dashed var(--warn);color:var(--fg);background:color-mix(in oklab,var(--warn) 9%,var(--surface));border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+
+input[type=text],input[type=password],input[type=number],input[type=date],select,textarea{
+  font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:7px 10px;width:100%;min-width:0}
+textarea{resize:vertical;min-height:64px;line-height:1.6}
+input[type=number]{width:96px}
+input[type=checkbox]{width:18px;height:18px;accent-color:var(--accent);flex:none;cursor:pointer}
+input[type=range]{accent-color:var(--accent);width:100%}
+input.bare{border-color:transparent;background:transparent;padding-inline:4px}
+input.bare:hover,input.bare:focus{border-color:var(--line);background:var(--bg)}
+.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:500}
+.btn.danger{color:var(--danger)}
+.btn.armed{background:var(--danger);border-color:var(--danger);color:#fff}
+.btn.sm{font-size:13px;padding:4px 10px}
+.x{border:0;background:none;color:var(--muted);cursor:pointer;font-size:16px;line-height:1;padding:4px 6px;border-radius:6px}
+.x:hover{color:var(--danger);background:var(--sunk)}
+.msg{font-size:13px;min-height:1.2em}
+.msg.err{color:var(--danger)}
+.msg.ok{color:var(--accent)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;padding:1px 9px;border-radius:999px;background:color-mix(in oklab,var(--c) 14%,transparent);color:var(--c);font-weight:500;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:3px 12px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+.check{display:flex;gap:10px;align-items:center;padding-block:3px}
+.check input[type=text]{flex:1}
+.check.done input[type=text]{color:var(--muted);text-decoration:line-through}
+
+/* hero */
+.hero{display:grid;gap:10px;padding-block:6px}
+.hero .motto{font-family:var(--serif);font-size:17px;color:var(--muted);max-width:52ch}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:6px}
+.stat b{display:block;font-family:var(--mono);font-size:26px;font-weight:500;line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+
+/* 79-year grid */
+.life{display:grid;gap:5px;overflow-x:auto}
+.life-row{display:grid;grid-template-columns:52px repeat(10,minmax(26px,1fr));gap:5px;align-items:center;min-width:360px}
+.life-row .dec{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.yr{aspect-ratio:1/1;border-radius:6px;border:1px dashed var(--line);background:transparent;display:grid;place-items:center;font-family:var(--mono);font-size:10px;color:var(--muted);cursor:pointer;padding:0;max-width:100%}
+.yr.past{border:0;background:color-mix(in oklab,var(--accent) 24%,var(--surface));color:var(--fg)}
+.yr.now{border:0;background:var(--accent);color:var(--accent-ink);font-weight:500;box-shadow:0 0 0 3px color-mix(in oklab,var(--accent) 30%,transparent)}
+.yr.planned{border-style:solid;border-color:color-mix(in oklab,var(--accent) 55%,var(--line))}
+.yr.blank{visibility:hidden}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+/* bars */
+.bar{display:grid;grid-template-columns:76px 1fr 40px;gap:10px;align-items:center}
+.track{height:8px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.fill{height:100%;background:var(--c,var(--accent));border-radius:99px}
+
+/* timeline */
+.decade{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-block:16px;border-top:1px solid var(--line)}
+.decade:first-child{border-top:0}
+.decade-label h3{font-family:var(--mono);font-weight:500;font-size:20px}
+.ev{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:start;padding-block:6px}
+.ev .y{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:2px}
+.ev .t{font-weight:500}
+
+/* phases */
+.phase{border-top:3px solid var(--accent)}
+.phase .years{font-family:var(--mono);font-size:13px;color:var(--muted)}
+
+table{border-collapse:collapse;width:100%;font-size:14px}
+.tbl{overflow-x:auto}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.05em;white-space:nowrap}
+td.num{white-space:nowrap}
+tr.cur td{background:color-mix(in oklab,var(--accent) 10%,transparent)}
+
+.navbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.navbar h1{flex:1;min-width:0}
+.ages{display:flex;gap:8px;flex-wrap:wrap}
+.age{font-size:13px;background:var(--sunk);border-radius:999px;padding:2px 11px}
+.age b{font-family:var(--mono);font-weight:500}
+
+.cat-block{display:grid;gap:4px;padding-block:10px;border-top:1px solid var(--line)}
+.cat-block:first-of-type{border-top:0}
+.weekstrip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.wday{border:1px solid var(--line);border-radius:10px;background:var(--bg);padding:8px 4px;text-align:center;cursor:pointer;font:inherit;color:var(--fg)}
+.wday.today{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.wday b{display:block;font-family:var(--mono);font-size:17px;font-weight:500}
+.wday small{color:var(--muted);font-size:11px}
+.habit{display:flex;gap:10px;align-items:center;padding:7px 10px;border-radius:8px;background:var(--bg);cursor:pointer}
+.goal{display:grid;gap:8px;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.goal-top{display:flex;gap:8px;align-items:flex-start}
+.goal-top .t{flex:1;font-weight:500;min-width:0}
+.prog{display:grid;grid-template-columns:1fr 46px;gap:10px;align-items:center}
+details summary{cursor:pointer;font-weight:500}
+.field{display:grid;gap:4px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:10px}
+
+/* sync pill */
+.sync-pill{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:999px;padding:3px 11px;white-space:nowrap;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.sync-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.sync-pill[data-state="idle"]::before{background:var(--accent)}
+.sync-pill[data-state="dirty"]::before,.sync-pill[data-state="busy"]::before,.sync-pill[data-state="offline"]::before{background:var(--warn)}
+.sync-pill[data-state="error"],.sync-pill[data-state="conflict"]{color:var(--danger);border-color:var(--danger)}
+.sync-pill[data-state="error"]::before,.sync-pill[data-state="conflict"]::before{background:var(--danger)}
+.banner.bad{border:1px solid var(--danger);background:color-mix(in oklab,var(--danger) 9%,var(--surface))}
+
+/* vision */
+.vision-hero{display:grid;gap:12px;padding-block:6px}
+.vision-text{font-family:var(--serif);font-size:clamp(18px,2.4vw,23px);line-height:1.75;background:transparent;border:1px solid transparent;padding:6px 8px;margin-left:-8px;min-height:140px;max-width:40em}
+.vision-text:hover,.vision-text:focus{border-color:var(--line);background:var(--surface)}
+.vision-quote{font-family:var(--serif);font-size:16px;line-height:1.75;max-width:60ch}
+.values{display:flex;gap:8px;flex-wrap:wrap}
+.value{font-family:var(--serif);font-size:15px;padding:3px 4px 3px 14px;border:1px solid var(--line);border-radius:999px;display:inline-flex;gap:2px;align-items:center;background:var(--bg)}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px;align-items:start}
+.vcard{background:color-mix(in oklab,var(--c) 9%,var(--surface));border:1px solid color-mix(in oklab,var(--c) 32%,var(--line));border-radius:14px;overflow:hidden;display:grid;min-width:0}
+.vcard img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;max-width:100%}
+.vbody{padding:14px;display:grid;gap:10px;min-width:0}
+.vt{font-family:var(--serif);font-size:19px;font-weight:700;line-height:1.4;width:100%;color:var(--fg);background:transparent;border:1px solid transparent;border-radius:8px;padding:2px 6px;margin-left:-6px}
+.vt:hover,.vt:focus{border-color:var(--line);background:var(--bg)}
+.vcard textarea{background:color-mix(in oklab,var(--bg) 70%,transparent)}
+.vcard .fill{background:var(--c)}
+.linkgoal{display:flex;gap:8px;align-items:flex-start;font-size:13px;padding-block:3px;cursor:pointer}
+.linkgoal input{margin-top:2px}
+
+/* mandala 9x9 */
+.mwrap{overflow-x:auto;padding-bottom:4px}
+.mandala{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;min-width:640px;max-width:920px;margin-inline:auto}
+.mandala.zoom{grid-template-columns:minmax(0,1fr);min-width:0;max-width:560px}
+.mblock{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;border-radius:10px;background:var(--sunk)}
+.mblock.core{background:color-mix(in oklab,var(--accent) 18%,var(--sunk))}
+.mcell{aspect-ratio:1/1;max-width:100%;min-width:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--fg);font:inherit;font-size:11.5px;line-height:1.3;padding:4px;display:grid;place-items:center;text-align:center;cursor:pointer;overflow:hidden;position:relative}
+.mcell span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+.mcell:hover{border-color:var(--muted)}
+.mcell.sel{outline:2px solid var(--fg);outline-offset:1px;z-index:1}
+.mcell.center{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-family:var(--serif);font-weight:700;font-size:13px}
+.mcell.theme{background:color-mix(in oklab,var(--c) 24%,var(--surface));border-color:color-mix(in oklab,var(--c) 55%,var(--line));font-weight:700}
+.mcell.empty{color:var(--muted);border-style:dashed;background:transparent}
+.mcell.st1{box-shadow:inset 0 -3px 0 var(--warn)}
+.mcell.st2{background:color-mix(in oklab,var(--c) 13%,var(--surface));box-shadow:inset 0 -3px 0 var(--c)}
+.mcell.st3{background:color-mix(in oklab,var(--c) 32%,var(--surface))}
+.mcell.st3::after{content:'✓';position:absolute;top:1px;right:4px;font-size:11px;font-weight:700;color:var(--c)}
+.mandala.zoom .mcell{font-size:14px;padding:8px}
+.mandala.zoom .mcell.center,.mandala.zoom .mcell.theme{font-size:16px}
+.mlegend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.mlegend i{display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid var(--line);margin-right:5px;vertical-align:-2px;background:var(--surface)}
+.loglist{display:grid;gap:4px}
+.logrow{display:grid;grid-template-columns:86px 1fr auto;gap:8px;align-items:start;font-size:14px}
+
+@media (max-width:640px){
+  .save-state{display:none}
+  .decade{grid-template-columns:1fr;gap:6px}
+  .brand{display:none}
+  .stat b{font-size:22px}
+}
+@media (prefers-reduced-motion:no-preference){.fill{transition:width .3s ease}}
+</style>
+</head>
+<body>
+
+<div id="lock" class="lock">
+  <div class="lock-card">
+    <div class="seal">三十<span>年</span></div>
+    <p class="muted">1978–2026 回顧 · 2026–2056 計畫。資料在你的瀏覽器裡用密碼加密（AES-256），沒有密碼誰都打不開。</p>
+    <div class="panel" id="lockPanel"></div>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand">三十<span>年</span></div>
+      <nav class="tabs" id="tabs"></nav>
+      <span class="save-state" id="saveState"></span>
+      <button class="sync-pill" id="syncPill" data-act="sync-now" data-state="off">未連線雲端</button>
+      <button class="btn sm" data-act="lock">上鎖</button>
+    </div>
+  </header>
+  <main class="wrap" id="view"></main>
+</div>
+
+<script>
+(() => {
+'use strict';
+/* ---------- constants ---------- */
+const CATS = [
+  {id:'health', name:'健康',   subs:['身體健康','心理健康','佛學禪學','運動']},
+  {id:'family', name:'家庭',   subs:['孩子','伴侶','母親']},
+  {id:'money',  name:'金錢',   subs:['運用','財富管理','投資']},
+  {id:'travel', name:'旅遊興趣', subs:['出國','收音機','手機']},
+  {id:'social', name:'社交',   subs:['人際互動','社群 LINE']},
+  {id:'learn',  name:'學習',   subs:['書本','網路學習','電腦','進修']},
+  {id:'career', name:'事業',   subs:['工作','轉型']},
+];
+const PHASES = [
+  {id:'p1', from:2026, to:2030, name:'重建期'},
+  {id:'p2', from:2031, to:2040, name:'深耕期'},
+  {id:'p3', from:2041, to:2050, name:'轉換期'},
+  {id:'p4', from:2051, to:2056, name:'傳承期'},
+];
+const HORIZONS = ['終身','十年','年度'];
+const TABS = [
+  ['overview','總覽'],['vision','願景'],['mandala','九宮格'],['review','回顧 1978–2026'],['blueprint','30 年藍圖'],
+  ['year','年計畫'],['week','週計畫'],['day','日計畫'],['goals','目標'],['settings','設定']];
+const START=1978, NOW_Y=2026, END=2056;
+const LS='lifeplan.v1';
+const WD='日一二三四五六';
+
+/* ---------- utils ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid = () => Math.random().toString(36).slice(2,10);
+const pad = n => String(n).padStart(2,'0');
+const dkey = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const parseD = k => { const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d); };
+const addDays = (d,n) => { const x=new Date(d); x.setDate(x.getDate()+n); return x; };
+const weekStart = d => addDays(d, -((d.getDay()+6)%7));
+function isoWeekKey(date){
+  const d=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate()));
+  const n=d.getUTCDay()||7; d.setUTCDate(d.getUTCDate()+4-n);
+  const ys=new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return d.getUTCFullYear()+'-W'+pad(Math.ceil(((d-ys)/864e5+1)/7));
+}
+const cat = id => CATS.find(c=>c.id===id) || CATS[0];
+const chip = id => `<span class="chip" style="--c:var(--c-${id})"><span class="dot"></span>${esc(cat(id).name)}</span>`;
+const catOptions = sel => CATS.map(c=>`<option value="${c.id}" ${c.id===sel?'selected':''}>${c.name}</option>`).join('');
+const phaseOf = y => PHASES.find(p=>y>=p.from&&y<=p.to);
+function lsGet(){ try{ return localStorage.getItem(LS); }catch(e){ return null; } }
+function lsSet(v){ try{ localStorage.setItem(LS,v); return true; }catch(e){ return false; } }
+function setPath(o,path,v){ const k=path.split('.'); let t=o; for(let i=0;i<k.length-1;i++){ if(t[k[i]]==null) t[k[i]]={}; t=t[k[i]]; } t[k[k.length-1]]=v; }
+function getPath(o,path){ return path.split('.').reduce((t,k)=>t==null?undefined:t[k],o); }
+
+/* ---------- crypto ---------- */
+const enc=new TextEncoder(), dec=new TextDecoder();
+function b64(u){ let s=''; for(let i=0;i<u.length;i+=0x8000) s+=String.fromCharCode.apply(null,u.subarray(i,i+0x8000)); return btoa(s); }
+const unb64 = s => Uint8Array.from(atob(s), c=>c.charCodeAt(0));
+async function deriveKey(pw,salt){
+  const base=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+let KEY=null, SALT=null, D=null;
+async function encryptData(forSync){
+  const obj = forSync ? JSON.parse(JSON.stringify(D)) : D;
+  if(forSync && obj.settings && obj.settings.gh) obj.settings.gh.token='';
+  if(forSync) obj.sync={sha:null,dirty:false};
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},KEY,enc.encode(JSON.stringify(obj))));
+  return JSON.stringify({app:'lifeplan',v:1,kdf:'PBKDF2-SHA256-250000',salt:b64(SALT),iv:b64(iv),ct:b64(ct),saved:new Date().toISOString()});
+}
+async function decryptBlob(blobStr,pw){
+  const b=JSON.parse(blobStr);
+  if(!b.ct) throw new Error('format');
+  const salt=unb64(b.salt), key=await deriveKey(pw,salt);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(b.iv)},key,unb64(b.ct));
+  return {data:JSON.parse(dec.decode(pt)),key,salt};
+}
+
+/* ---------- data ---------- */
+function seed(){
+  const t=dkey(new Date()), wk=isoWeekKey(new Date());
+  const g=(c,s,h,due,title,measure,why,p)=>({id:uid(),cat:c,sub:s,horizon:h,due,title,measure,why,progress:p});
+  const o={
+    v:1, isSample:true,
+    profile:{name:'',birthYear:1978,childBirthYear:2021,motherBirthYear:'',
+      motto:'健康地再活 30 年：陪孩子長大，做個好父親、好老公，珍惜和母親相處的時間，讓人生不留遺憾。'},
+    habits:['運動 30 分鐘','靜坐 / 禪修 10 分鐘','陪孩子專注時間','與母親聯絡','閱讀 / 進修 30 分鐘','11 點前上床'],
+    wheel:{health:5,family:7,money:6,travel:5,social:5,learn:7,career:4}, wheelDate:t,
+    reflect:{proud:'',regret:'',lessons:'',gratitude:''},
+    review:[
+      {id:uid(),year:1978,cat:'family',title:'出生',note:''},
+      {id:uid(),year:2000,cat:'learn',title:'第一個學位畢業（範例）',note:''},
+      {id:uid(),year:2002,cat:'career',title:'第一份工作（範例）',note:''},
+      
+      
+      
+    ],
+    decadeNotes:{},
+    phases:{
+      p1:{theme:'把身體顧好、完成進修、工作轉型；孩子上小學，建立固定的家庭節奏。'},
+      p2:{theme:'孩子進入青春期與升學，做他的教練；累積財富、退休金到位；每年陪母親出遊。'},
+      p3:{theme:'退休與第二人生：教學、寫作、收音機與旅行；孩子成年獨立；維持肌力與腦力。'},
+      p4:{theme:'傳承：寫下人生回憶錄，把經驗交給孩子；健康自主地生活。'},
+    },
+    goals:[
+      g('health','運動','終身',2056,'每週 150 分鐘中等強度運動','週計畫裡記錄分鐘數','要有體力陪孩子到他 35 歲',30),
+      g('health','身體健康','終身',2056,'每年完整健康檢查','每年一次，報告存檔','早發現、早處理',50),
+      g('health','佛學禪學','終身',2056,'每天靜坐 10 分鐘，每年精讀一部經典','日計畫習慣打勾','心定，才看得清方向',20),
+      g('health','心理健康','終身',2056,'每週寫週回顧，覺察壓力與情緒','每週日晚上 20 分鐘','照顧好自己的心',10),
+      g('family','孩子','終身',2056,'每週一次「一對一」親子時光','每週至少 2 小時，不看手機','把人生經驗一點一點交給他',40),
+      g('family','伴侶','終身',2056,'每月一次兩人約會','每月一次','好老公是好父親的基礎',20),
+      g('family','母親','終身',2056,'每週一通電話、每月一起吃飯','每週 / 每月','時間不會等人',40),
+      g('family','母親','十年',2030,'每年帶母親旅行一次','2026–2030 共 5 次','留下一起的回憶',0),
+      g('money','財富管理','年度',2027,'建立 6 個月生活費的緊急預備金','預備金 ÷ 月支出 ≥ 6','讓家庭有安全感',35),
+      g('money','投資','年度',2027,'完成退休金缺口試算，訂出每月投入比例','一份試算表 + 自動扣款','退休不靠運氣',10),
+      g('learn','網路學習','十年',2028,'完成進修學位','畢業','打開下一階段',15),
+      g('learn','書本','終身',2056,'每年讀 24 本書','年計畫裡記錄書單','',25),
+      g('learn','電腦','年度',2026,'自己維護這套人生計畫系統（GitHub）','每週日更新一次','讓計畫成為習慣',60),
+      g('travel','出國','終身',2056,'每年一次家庭出國','年計畫列出地點','孩子的眼界、一家人的回憶',0),
+      g('travel','收音機','十年',2030,'整理收音機收藏，建立聆聽紀錄','清單完成','把興趣變成能分享的東西',10),
+      g('social','社群 LINE','終身',2056,'每月主動聯絡 3 位老朋友','每月 3 位','人際關係需要經營',0),
+      g('career','轉型','十年',2028,'想清楚下一階段角色（技術專家 / 管理 / 教學）','寫成一頁職涯計畫','讓累積的經驗發揮價值',10),
+    ],
+    years:{
+      '2026':{theme:'重建：把身體、學業、家庭節奏穩住',review:'',items:[
+        {id:uid(),cat:'health',text:'恢復規律運動：每週 3 次快走',done:false},
+        {id:uid(),cat:'learn',text:'進修課程全部通過',done:false},
+        {id:uid(),cat:'family',text:'寒假一家人小旅行',done:false},
+        {id:uid(),cat:'learn',text:'把這套系統上傳 GitHub 並固定使用',done:false}]},
+      '2027':{theme:'站穩：論文方向確定，財務安全網到位',review:'',items:[]},
+      '2028':{theme:'畢業與轉身',review:'',items:[]},
+    },
+    weeks:{[wk]:{big3:['完成一份報告初稿','三次快走 + 一次肌力','週六帶孩子去公園半天'],
+      items:[{id:uid(),cat:'family',text:'打電話給媽媽',done:false},{id:uid(),cat:'money',text:'整理上月支出',done:false}],
+      review:{good:'',improve:'',next:''}}},
+    days:{[t]:{top3:[{text:'晨間快走 30 分鐘',done:false},{text:'下班後陪孩子讀繪本',done:false},{text:'打電話給媽媽',done:false}],
+      blocks:{morning:'',noon:'',afternoon:'',evening:''},habits:{},gratitude:'',note:''}},
+    settings:{gh:{owner:'',repo:'',branch:'main',path:'lifeplan.enc.json',token:''}},
+    sync:{sha:null,dirty:false}, lastBackup:'',
+  };
+  o.vision=seedVision(o.goals);
+  o.mandala=seedMandala();
+  return o;
+}
+function seedVision(goals){
+  const gid=t=>(goals.find(g=>g.title.includes(t))||{}).id;
+  const c=(cat,title,year,gs,ms)=>({id:uid(),cat,title,year,note:'',img:'',goalIds:gs.map(gid).filter(Boolean),missions:ms.map(t=>({id:uid(),text:t,done:false}))});
+  return {
+    statement:'2056 年，78 歲的我身體硬朗、心境安定，還能自己走山路。孩子已經長大成人，仍然喜歡找我聊人生；我們一家走過許多國家，我把這一生的經驗寫成了一本書。',
+    mission:'用健康的身體和安定的心陪伴家人；持續學習、誠實做事；把所學所經歷，傳給下一代。',
+    values:['健康','家庭','誠信','學習','慈悲','感恩'],
+    cards:[
+      c('health','78 歲還能自己爬山，走遍想去的地方',2056,['150 分鐘','健康檢查'],['每週三次快走 30 分鐘','每週兩次肌力訓練','每年一次完整健康檢查']),
+      c('family','孩子長大後，還願意找我聊人生',2046,['一對一','約會'],['每晚睡前聊天 15 分鐘','每年一次親子兩人小旅行','每年寫一封給孩子的人生書信']),
+      c('family','陪母親走過晚年，不留遺憾',2040,['每週一通電話','帶母親旅行'],['每週一通電話','每月一起吃飯','整理母親的老照片與故事']),
+      c('money','工作成為選擇，而不是必須',2038,['緊急預備金','退休金'],['每月記帳','每年檢視一次資產配置']),
+      c('learn','把一生的經驗寫成一本書',2050,['24 本書'],['每週寫一篇短文','每年整理出一章']),
+      c('travel','和家人一起走過 30 個國家',2056,['家庭出國'],['每年訂下一個目的地','每趟旅行做一本相簿']),
+    ]};
+}
+function migrate(d){
+  const s=seed();
+  for(const k of Object.keys(s)) if(d[k]==null && k!=='isSample') d[k]=s[k] && typeof s[k]==='object' ? (Array.isArray(s[k])?[]:{}) : s[k];
+  d.settings.gh = Object.assign({owner:'',repo:'',branch:'main',path:'lifeplan.enc.json',token:''}, d.settings.gh||{});
+  d.profile = Object.assign({name:'',birthYear:1978,childBirthYear:2021,motherBirthYear:'',motto:''}, d.profile||{});
+  d.vision = Object.assign({statement:'',mission:'',values:[],cards:[]}, d.vision||{});
+  d.vision.cards.forEach(v=>{ v.missions=v.missions||[]; v.goalIds=v.goalIds||[]; });
+  d.sync = Object.assign({sha:null,dirty:false}, d.sync||{});
+  d.mandala = normMandala(d.mandala);
+  if(!Array.isArray(d.habits) || !d.habits.length) d.habits=s.habits;
+  return d;
+}
+const ensureYear = y => (D.years[y] ||= {theme:'',items:[],review:''});
+const ensureWeek = k => (D.weeks[k] ||= {big3:['','',''],items:[],review:{good:'',improve:'',next:''}});
+const ensureDay = k => (D.days[k] ||= {top3:[{text:'',done:false},{text:'',done:false},{text:'',done:false}],blocks:{morning:'',noon:'',afternoon:'',evening:''},habits:{},gratitude:'',note:''});
+const ageAt = y => y - Number(D.profile.birthYear||1978);
+const kidAt = y => y - Number(D.profile.childBirthYear||2021);
+const momAt = y => D.profile.motherBirthYear ? y - Number(D.profile.motherBirthYear) : null;
+function agesHTML(y){
+  const m=momAt(y), k=kidAt(y);
+  return `<div class="ages"><span class="age">你 <b>${ageAt(y)}</b> 歲</span>${k>=0?`<span class="age">孩子 <b>${k}</b> 歲</span>`:''}${m?`<span class="age">母親 <b>${m}</b> 歲</span>`:''}</div>`;
+}
+
+/* ---------- save & sync ---------- */
+let saveTimer=null, EDIT=0;
+const hhmm = () => { const t=new Date(); return pad(t.getHours())+':'+pad(t.getMinutes()); };
+function save(clean){
+  if(!KEY) return;
+  if(!clean){ EDIT++; D.sync.dirty=true; schedulePush(); }
+  $('#saveState').textContent='儲存中…';
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(saveLocalNow,400);
+}
+async function saveLocalNow(){
+  clearTimeout(saveTimer);
+  if(!KEY) return;
+  const ok=lsSet(await encryptData(false));
+  $('#saveState').textContent = ok ? '本機已存 '+hhmm() : '這台裝置無法存檔，請到設定下載備份';
+}
+const SYNC={timer:null,busy:false,state:'off',detail:'',at:'',conflict:null,lastCheck:0};
+const SYNC_TEXT={off:'未連線雲端',idle:'已同步',dirty:'待同步',busy:'同步中…',offline:'離線中，稍後補傳',error:'同步失敗',conflict:'雲端版本衝突'};
+function ghReady(){ const G=D&&D.settings&&D.settings.gh; return !!(G&&G.owner&&G.repo&&G.token&&G.path); }
+function setSync(st,detail){
+  SYNC.state=st; SYNC.detail=detail||'';
+  const label=SYNC_TEXT[st]+(st==='idle'&&SYNC.at?' '+SYNC.at:'');
+  const p=$('#syncPill'); if(p){ p.dataset.state=st; p.textContent=label; p.title=detail||'按一下立即同步'; }
+  const m=$('#ghState'); if(m){ m.textContent=label+(detail?'：'+detail:''); m.className='msg '+(st==='error'||st==='conflict'?'err':st==='idle'?'ok':''); }
+}
+function schedulePush(){
+  if(!ghReady()) return setSync('off');
+  if(SYNC.conflict) return;
+  if(!SYNC.busy) setSync(navigator.onLine?'dirty':'offline');
+  clearTimeout(SYNC.timer);
+  SYNC.timer=setTimeout(()=>pushNow(),45000);
+}
+async function fetchRemote(G){
+  const r=await gh('GET',null,false,G);
+  if(r.status===404) return null;
+  if(!r.ok) throw new Error(await errText(r));
+  const j=await r.json(); let txt;
+  if(j.content && j.encoding==='base64') txt=atob(j.content.replace(/\n/g,''));
+  else { const r2=await gh('GET',null,true,G); if(!r2.ok) throw new Error(await errText(r2)); txt=await r2.text(); }
+  return {sha:j.sha, blob:txt};
+}
+async function decryptWithKey(blobStr){
+  const o=JSON.parse(blobStr);
+  if(o.salt!==b64(SALT)){ const e=new Error('pw'); e.code='pw'; throw e; }
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(o.iv)},KEY,unb64(o.ct));
+  return JSON.parse(dec.decode(pt));
+}
+function adoptRemote(data,sha){
+  const gh0=D.settings.gh;
+  D=migrate(data); D.settings.gh=gh0; D.sync={sha,dirty:false};
+  SYNC.conflict=null; SYNC.at=hhmm(); save(true); setSync('idle'); render();
+}
+async function syncCheck(){
+  if(!D) return;
+  if(!ghReady()) return setSync('off');
+  if(!navigator.onLine) return setSync('offline');
+  if(SYNC.busy) return;
+  SYNC.busy=true; setSync('busy'); SYNC.lastCheck=Date.now();
+  let action='conflict';
+  try{
+    const rem=await fetchRemote();
+    if(!rem || rem.sha===D.sync.sha){ action=(!rem || D.sync.dirty)?'push':'idle'; }
+    else {
+      let data=null;
+      try{ data=await decryptWithKey(rem.blob); }
+      catch(e){ SYNC.conflict={pw:true,blob:rem.blob,sha:rem.sha}; }
+      if(data && !D.sync.dirty){ SYNC.busy=false; return adoptRemote(data,rem.sha); }
+      if(data) SYNC.conflict={data,sha:rem.sha};
+    }
+  }catch(e){ SYNC.busy=false; return setSync(navigator.onLine?'error':'offline', e.message); }
+  SYNC.busy=false;
+  if(action==='push') return pushNow(true,true);
+  if(action==='idle'){ SYNC.at=hhmm(); return setSync('idle'); }
+  setSync('conflict'); render();
+}
+async function pushNow(force,fromCheck){
+  clearTimeout(SYNC.timer);
+  if(!D) return;
+  if(!ghReady()) return setSync('off');
+  if(SYNC.conflict) return setSync('conflict');
+  if(!D.sync.dirty && !force) return;
+  if(!navigator.onLine) return setSync('offline');
+  if(SYNC.busy){ SYNC.timer=setTimeout(()=>pushNow(force),4000); return; }
+  SYNC.busy=true; setSync('busy');
+  const rev=EDIT;
+  try{
+    const blob=await encryptData(true);
+    const body={message:`更新人生計畫 ${dkey(new Date())} ${hhmm()}`,content:btoa(blob),branch:D.settings.gh.branch||'main'};
+    if(D.sync.sha) body.sha=D.sync.sha;
+    const r=await gh('PUT',body);
+    if((r.status===409||r.status===422) && !fromCheck){ SYNC.busy=false; return syncCheck(); }
+    if(!r.ok) throw new Error(await errText(r));
+    const j=await r.json();
+    D.sync.sha=j.content.sha; D.sync.dirty=(EDIT!==rev);
+    SYNC.at=hhmm(); SYNC.busy=false; save(true);
+    if(D.sync.dirty) schedulePush(); else setSync('idle');
+  }catch(e){ SYNC.busy=false; setSync(navigator.onLine?'error':'offline', e.message); }
+}
+function gh(method,body,raw,G){
+  G=G||D.settings.gh;
+  const url=`https://api.github.com/repos/${encodeURIComponent(G.owner.trim())}/${encodeURIComponent(G.repo.trim())}/contents/${G.path.trim().split('/').map(encodeURIComponent).join('/')}`+(method==='GET'?`?ref=${encodeURIComponent(G.branch||'main')}`:'');
+  return fetch(url,{method,cache:'no-store',headers:{'Authorization':'Bearer '+G.token.trim(),'Accept':raw?'application/vnd.github.raw+json':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'},body:body?JSON.stringify(body):undefined});
+}
+async function errText(r){
+  let m=''; try{ m=(await r.json()).message||''; }catch(e){}
+  const hint={401:'Token 無效或已過期',403:'Token 權限不足（需要 Contents 讀寫）',404:'找不到倉庫：請檢查帳號、倉庫名稱，以及 Token 是否授權這個倉庫'}[r.status];
+  return `${r.status} ${hint||m}`;
+}
+window.addEventListener('online',()=>{ if(D&&KEY) syncCheck(); });
+window.addEventListener('offline',()=>{ if(D&&KEY&&ghReady()) setSync('offline'); });
+document.addEventListener('visibilitychange',()=>{
+  if(!D||!KEY) return;
+  if(document.hidden){ saveLocalNow(); if(D.sync.dirty) pushNow(); }
+  else if(Date.now()-SYNC.lastCheck>60000) syncCheck();
+});
+
+/* ---------- UI state ---------- */
+const today=new Date();
+const S={tab:'overview', year:Math.max(NOW_Y,today.getFullYear()), week:weekStart(today), day:new Date(today), gfilter:'all', mcell:null, mzoom:(window.innerWidth<600?'core':null), pendingBlob:null, pendingSrc:'', bootGh:null, bootSha:null, openLinks:new Set()};
+
+/* ---------- lock screen ---------- */
+function lockView(mode,note){
+  const p=$('#lockPanel');
+  if(mode==='create'){
+    p.innerHTML=`<h2>建立你的密碼</h2>
+      <p class="small muted">密碼不會存在任何地方，也無法找回。忘記密碼，資料就打不開，請記在安全的地方。</p>
+      <div class="field"><label class="label" for="pw1">密碼（至少 6 字）</label><input type="password" id="pw1" autocomplete="new-password"></div>
+      <div class="field"><label class="label" for="pw2">再輸入一次</label><input type="password" id="pw2" autocomplete="new-password"></div>
+      <button class="btn primary" data-act="create">建立並開始（附範例內容）</button>
+      <div class="msg" id="lockMsg"></div>
+      ${ghBootBox()}
+      <details><summary class="small">已經有備份檔？</summary><div class="stack" style="margin-top:8px">${importBox('lk')}</div></details>`;
+  } else {
+    p.innerHTML=`<h2>解鎖</h2>
+      ${note?`<p class="small muted">${esc(note)}</p>`:''}
+      <div class="field"><label class="label" for="pw">密碼</label><input type="password" id="pw" autocomplete="current-password"></div>
+      <button class="btn primary" data-act="unlock">打開我的計畫</button>
+      <div class="msg" id="lockMsg"></div>
+      ${ghBootBox()}
+      <details><summary class="small">從備份檔還原 / 重新開始</summary><div class="stack" style="margin-top:8px">${importBox('lk')}
+        <button class="btn sm danger" data-act="reset-local">清除這台裝置的資料，重新開始</button></div></details>`;
+  }
+  setTimeout(()=>{ const f=p.querySelector('input[type=password]'); f&&f.focus(); },50);
+}
+function importBox(px){
+  return `<label class="label" for="${px}File">選擇備份檔（.enc.json）</label><input type="file" id="${px}File" accept=".json,application/json">
+    <label class="label" for="${px}Paste">或貼上備份內容</label><textarea id="${px}Paste" rows="3" placeholder='{"app":"lifeplan",...}'></textarea>
+    <button class="btn sm" data-act="${px}-load">載入備份</button>`;
+}
+function ghBootBox(){
+  return `<details><summary class="small">換新裝置：從 GitHub 私人資料倉庫載入</summary><div class="stack" style="margin-top:8px">
+    <div class="form-grid"><div class="field"><label class="label" for="bo-o">GitHub 帳號</label><input type="text" id="bo-o" autocomplete="off"></div>
+    <div class="field"><label class="label" for="bo-r">資料倉庫</label><input type="text" id="bo-r" placeholder="例：my-life-data" autocomplete="off"></div></div>
+    <div class="field"><label class="label" for="bo-p">資料檔名</label><input type="text" id="bo-p" value="lifeplan.enc.json"></div>
+    <div class="field"><label class="label" for="bo-t">Token</label><input type="password" id="bo-t" autocomplete="off"></div>
+    <button class="btn sm" data-act="gh-boot">從 GitHub 載入</button></div></details>`;
+}
+async function readImport(px){
+  const f=$('#'+px+'File'); const t=$('#'+px+'Paste');
+  if(f && f.files && f.files[0]) return await f.files[0].text();
+  return t ? t.value.trim() : '';
+}
+async function boot(){
+  if(!(window.crypto && crypto.subtle)){ $('#lockPanel').innerHTML='<p>此瀏覽器不支援加密功能，請改用新版 Chrome / Edge / Safari，並透過 https 開啟。</p>'; return; }
+  const blob=lsGet();
+  if(blob){ S.pendingBlob=blob; return lockView('unlock'); }
+  lockView('create');
+}
+function openApp(){
+  $('#lock').hidden=true; $('#app').hidden=false;
+  $('#saveState').textContent='已解鎖';
+  SYNC.conflict=null; SYNC.at='';
+  render(); armIdle();
+  syncCheck();
+}
+async function lockApp(note){
+  if(D && KEY){
+    clearTimeout(SYNC.timer);
+    await saveLocalNow();
+    if(D.sync.dirty && ghReady() && navigator.onLine && !SYNC.conflict){ $('#saveState').textContent='上鎖前同步中…'; await pushNow(true); }
+  }
+  KEY=null; D=null; SALT=null; clearTimeout(saveTimer); clearTimeout(SYNC.timer); SYNC.conflict=null; SYNC.busy=false;
+  $('#view').innerHTML=''; $('#app').hidden=true; $('#lock').hidden=false;
+  S.pendingBlob=lsGet(); lockView('unlock', note||'已上鎖。');
+}
+let idleT=null;
+function armIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ if(KEY) lockApp(); }, 20*60*1000); }
+['click','keydown','touchstart'].forEach(ev=>document.addEventListener(ev,()=>{ if(KEY) armIdle(); },{passive:true}));
+
+/* ---------- render ---------- */
+function render(){
+  $('#tabs').innerHTML = TABS.map(([id,n])=>`<button data-act="tab" data-tab="${id}" ${S.tab===id?'aria-current="page"':''}>${n}</button>`).join('');
+  const v = ({overview:vOverview,vision:vVision,mandala:vMandala,review:vReview,blueprint:vBlueprint,year:vYear,week:vWeek,day:vDay,goals:vGoals,settings:vSettings})[S.tab]();
+  $('#view').innerHTML = banners() + v;
+  setSync(SYNC.state, SYNC.detail);
+}
+function banners(){
+  let h='';
+  const c=SYNC.conflict;
+  if(c) h+=`<div class="banner bad"><span class="small">${c.pw?'雲端的資料是用另一組密碼加密的（可能在別台裝置換過密碼）。':'雲端有別台裝置更新過的版本，這台裝置也有尚未同步的修改。建議先到「設定」下載一份備份再選。'}</span>
+    <span class="row"><button class="btn sm" data-act="use-remote">${c.pw?'輸入那組密碼，開啟雲端版本':'改用雲端版本'}</button><button class="btn sm" data-act="use-local">用這台的版本覆蓋雲端</button></span></div>`;
+  if(D.isSample) h+=`<div class="banner"><span class="small">目前顯示的是<b>範例內容</b>，可以直接修改；確認不需要時一鍵清空。</span><button class="btn sm" data-act="clear-sample">清除範例，從空白開始</button></div>`;
+  else if(S.tab==='overview'){
+    const lb=D.lastBackup, days=lb?Math.floor((today-parseD(lb))/864e5):null;
+    if(days===null||days>30) h+=`<div class="banner"><span class="small">${days===null?'還沒有下載過備份檔。':`已經 ${days} 天沒有下載備份檔。`}雲端同步救不了「忘記密碼」，每月下載一份放到隨身碟或雲端硬碟比較安心。</span><button class="btn sm" data-act="tab" data-tab="settings">去下載備份</button></div>`;
+  }
+  return h;
+}
+
+/* 總覽 */
+function vOverview(){
+  const y=today.getFullYear(), tk=dkey(today), day=ensureDay(tk), wk=ensureWeek(isoWeekKey(today));
+  const endD=new Date(END,11,31), weeksLeft=Math.max(0,Math.round((endD-today)/(7*864e5)));
+  const kid=kidAt(END);
+  // life grid
+  let rows='';
+  for(let dec=1970; dec<=2050; dec+=10){
+    let cells='';
+    for(let i=0;i<10;i++){
+      const yy=dec+i;
+      if(yy<START||yy>END){ cells+='<span class="yr blank"></span>'; continue; }
+      const st = yy<y?'past':yy===y?'now':(D.years[yy]&&D.years[yy].theme?'planned':'');
+      cells+=`<button class="yr ${st}" data-act="year-jump" data-y="${yy}" title="${yy} · 你 ${ageAt(yy)} 歲${kidAt(yy)>=0?' · 孩子 '+kidAt(yy)+' 歲':''}">${ageAt(yy)}</button>`;
+    }
+    rows+=`<div class="life-row"><span class="dec">${dec}s</span>${cells}</div>`;
+  }
+  const wheel = CATS.map(c=>`<div class="bar" style="--c:var(--c-${c.id})"><span class="small">${c.name}</span>
+      <input type="range" min="1" max="10" value="${D.wheel[c.id]||5}" data-path="wheel.${c.id}" data-out="wv-${c.id}" aria-label="${c.name} 自評">
+      <span class="num small" id="wv-${c.id}">${D.wheel[c.id]||5}</span></div>`).join('');
+  const goalBars = CATS.map(c=>{
+    const gs=D.goals.filter(g=>g.cat===c.id); if(!gs.length) return '';
+    const avg=Math.round(gs.reduce((a,g)=>a+Number(g.progress||0),0)/gs.length);
+    return `<div class="bar" style="--c:var(--c-${c.id})"><span class="small">${c.name}</span><div class="track"><div class="fill" style="width:${avg}%"></div></div><span class="num small">${avg}%</span></div>`;
+  }).join('');
+  const top3 = day.top3.map((t,i)=>`<div class="check ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} data-path="days.${tk}.top3.${i}.done" aria-label="完成"><input type="text" class="bare" value="${esc(t.text)}" data-path="days.${tk}.top3.${i}.text" placeholder="今天最重要的事 ${i+1}"></div>`).join('');
+  const wk3 = wk.big3.map((t,i)=>`<div class="check"><span class="num muted">${i+1}</span><input type="text" class="bare" value="${esc(t)}" data-path="weeks.${isoWeekKey(today)}.big3.${i}" placeholder="本週大石頭 ${i+1}"></div>`).join('');
+  return `
+  <section class="hero">
+    <span class="label">${y} 年 ${today.getMonth()+1} 月 ${today.getDate()} 日 · 星期${WD[today.getDay()]}</span>
+    <h1>${D.profile.name?esc(D.profile.name)+'，':''}今年 ${ageAt(y)} 歲，往 ${ageAt(END)} 歲走去</h1>
+    <p class="motto">${esc(D.profile.motto)}</p>
+    <div class="stats">
+      <div class="stat"><b>${weeksLeft.toLocaleString()}</b><span>距 ${END} 年底還有的週數</span></div>
+      <div class="stat"><b>${kid}</b><span>${END} 年孩子的年紀</span></div>
+      <div class="stat"><b>${END-y}</b><span>還要規劃的年份</span></div>
+      <div class="stat"><b>${D.goals.length}</b><span>進行中的目標</span></div>
+    </div>
+  </section>
+  <section class="panel"><div class="panel-head"><h2>我的願景</h2><button class="btn sm" data-act="tab" data-tab="vision">打開願景告示板</button></div>
+    ${D.vision.statement?`<p class="vision-quote">${esc(D.vision.statement)}</p>`:'<p class="small muted">還沒寫下 2056 年的願景。</p>'}
+    <div class="stack">${D.vision.cards.map(v=>{const p=vProg(v);return `<div class="bar" style="--c:var(--c-${v.cat});grid-template-columns:minmax(0,1fr) 100px 40px"><span class="small">${esc(v.title)} <span class="num muted">${v.year}</span></span><div class="track"><div class="fill" style="width:${p}%"></div></div><span class="num small">${p}%</span></div>`;}).join('')}</div>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><h2>一生 79 格</h2><span class="small muted">每格一年，數字是當年你的年齡；點格子到該年</span></div>
+    <div class="life">${rows}</div>
+    <div class="legend"><span><i style="background:color-mix(in oklab,var(--accent) 24%,var(--surface))"></i>走過的年</span><span><i style="background:var(--accent)"></i>今年</span><span><i style="border:1px solid var(--accent)"></i>已訂年度主題</span><span><i style="border:1px dashed var(--line)"></i>尚待規劃</span></div>
+  </section>
+  <div class="grid2">
+    <section class="panel"><div class="panel-head"><h2>今天的三件事</h2><button class="btn sm" data-act="tab" data-tab="day">打開日計畫</button></div>${top3}</section>
+    <section class="panel"><div class="panel-head"><h2>本週三顆大石頭</h2><button class="btn sm" data-act="tab" data-tab="week">打開週計畫</button></div>${wk3}</section>
+  </div>
+  <div class="grid2">
+    <section class="panel"><div class="panel-head"><h2>人生平衡輪</h2><span class="small muted">每月自評 1–10 · 上次 ${esc(D.wheelDate||'—')}</span></div>${wheel}</section>
+    <section class="panel"><div class="panel-head"><h2>目標進度</h2><button class="btn sm" data-act="tab" data-tab="goals">管理目標</button></div>${goalBars||'<p class="muted small">還沒有目標。</p>'}</section>
+  </div>`;
+}
+
+/* 願景 */
+function vProg(v){
+  const gs=(v.goalIds||[]).map(id=>D.goals.find(g=>g.id===id)).filter(Boolean);
+  const parts=[];
+  if(gs.length) parts.push(gs.reduce((a,g)=>a+Number(g.progress||0),0)/gs.length);
+  if(v.missions&&v.missions.length) parts.push(100*v.missions.filter(m=>m.done).length/v.missions.length);
+  return parts.length?Math.round(parts.reduce((a,b)=>a+b,0)/parts.length):0;
+}
+function vVision(){
+  const V=D.vision;
+  const vals=V.values.map((t,i)=>`<span class="value">${esc(t)}<button class="x" data-act="del-value" data-i="${i}" aria-label="移除 ${esc(t)}">×</button></span>`).join('');
+  const cards=V.cards.map((v,i)=>{
+    const p=vProg(v), ids=v.goalIds||[];
+    const opts=D.goals.filter(g=>g.cat===v.cat||ids.includes(g.id));
+    const nLinked=ids.filter(id=>D.goals.some(g=>g.id===id)).length;
+    const ms=v.missions.map((m,j)=>`<div class="check ${m.done?'done':''}"><input type="checkbox" ${m.done?'checked':''} data-path="vision.cards.${i}.missions.${j}.done" aria-label="完成"><input type="text" class="bare" value="${esc(m.text)}" data-path="vision.cards.${i}.missions.${j}.text" aria-label="任務"><button class="x" data-act="del-mission" data-v="${v.id}" data-m="${m.id}" aria-label="刪除任務">×</button></div>`).join('');
+    return `<article class="vcard" style="--c:var(--c-${v.cat})">
+      ${v.img?`<img src="${v.img}" alt="${esc(v.title)}">`:''}
+      <div class="vbody">
+        <div class="row">${chip(v.cat)}<span class="small muted">實現於</span><input type="number" min="${NOW_Y}" max="${END}" value="${v.year}" data-path="vision.cards.${i}.year" data-num data-rerender aria-label="目標年" style="width:84px"><span class="small muted">你 ${ageAt(v.year)} 歲</span></div>
+        <input type="text" class="vt" value="${esc(v.title)}" data-path="vision.cards.${i}.title" aria-label="願景">
+        <textarea rows="2" data-path="vision.cards.${i}.note" placeholder="那時候的畫面：在哪裡、和誰、感覺如何？">${esc(v.note)}</textarea>
+        <div class="prog"><div class="track"><div class="fill" style="width:${p}%"></div></div><span class="num small">${p}%</span></div>
+        <div class="stack" style="gap:2px"><span class="label">使命任務</span>${ms||'<p class="small muted">還沒有任務。</p>'}
+          <div class="row"><input type="text" id="vm-${v.id}" placeholder="新增任務…" data-enter="add-mission" data-v="${v.id}" style="flex:1"><button class="btn sm" data-act="add-mission" data-v="${v.id}">加入</button></div></div>
+        <details ${S.openLinks.has(v.id)?'open':''}><summary class="small">對應目標（${nLinked}）</summary>
+          <div class="stack" style="gap:0;margin-top:6px">${opts.map(g=>`<label class="linkgoal"><input type="checkbox" ${ids.includes(g.id)?'checked':''} data-act="link-goal" data-v="${v.id}" data-g="${g.id}"><span>${esc(g.title)} <span class="num muted">${g.progress}%</span></span></label>`).join('')||'<p class="small muted">這個領域還沒有目標，先到「目標」新增。</p>'}</div></details>
+        <div class="row"><label class="btn sm" for="vi-${v.id}">${v.img?'換圖片':'加圖片'}</label><input type="file" id="vi-${v.id}" accept="image/*" data-img="${v.id}" hidden>${v.img?`<button class="btn sm" data-act="del-img" data-v="${v.id}">移除圖片</button>`:''}<span style="flex:1"></span><button class="btn sm danger" data-act="del-vision" data-v="${v.id}">刪除</button></div>
+      </div></article>`;
+  }).join('');
+  const rows=V.cards.map(v=>{
+    const p=vProg(v), gs=(v.goalIds||[]).map(id=>D.goals.find(g=>g.id===id)).filter(Boolean), md=v.missions.filter(m=>m.done).length;
+    return `<tr><td style="min-width:170px">${esc(v.title)}</td><td>${chip(v.cat)}</td><td class="num">${v.year}</td>
+      <td style="min-width:150px">${v.missions.map(m=>`<div class="small ${m.done?'muted':''}">${m.done?'✓ ':''}${esc(m.text)}</div>`).join('')||'<span class="muted">—</span>'}</td>
+      <td style="min-width:190px">${gs.map(g=>`<div class="small">${esc(g.title)} <span class="num muted">${g.progress}%</span></div>`).join('')||'<span class="muted">—</span>'}</td>
+      <td style="min-width:130px"><div class="prog" style="--c:var(--c-${v.cat})"><div class="track"><div class="fill" style="width:${p}%"></div></div><span class="num small">${p}%</span></div><span class="small muted num">任務 ${md}/${v.missions.length}</span></td></tr>`;
+  }).join('');
+  return `
+  <section class="vision-hero"><span class="label">VISION · ${END}</span><h1>${END} 年，${ageAt(END)} 歲的我</h1>
+    <textarea class="vision-text" rows="4" data-path="vision.statement" aria-label="人生願景" placeholder="想像 30 年後的某一天：你在哪裡？身邊有誰？身體如何？每天做什麼？">${esc(V.statement)}</textarea></section>
+  <div class="grid2">
+    <section class="panel"><h2>使命宣言</h2><p class="small muted">願景是終點的畫面，使命是每天怎麼走。寫成一兩句，遇到抉擇時拿出來對照。</p>
+      <textarea rows="4" data-path="vision.mission" aria-label="使命宣言">${esc(V.mission)}</textarea></section>
+    <section class="panel"><h2>核心價值</h2><p class="small muted">做決定時的準則，建議不超過 7 個。</p><div class="values">${vals||'<span class="small muted">還沒有。</span>'}</div>
+      <div class="row"><input type="text" id="nv-val" data-enter="add-value" placeholder="新增，例如：慈悲" style="flex:1"><button class="btn sm" data-act="add-value">加入</button></div></section>
+  </div>
+  <section class="panel"><div class="panel-head"><h2>願景告示板</h2><span class="small muted">一張卡片是一個要實現的畫面；底下拆成使命任務，再連結到目標</span></div>
+    <details><summary>新增願景卡</summary><div class="form-grid" style="margin-top:10px">
+      <div class="field"><label class="label" for="nv-c">領域</label><select id="nv-c">${catOptions('health')}</select></div>
+      <div class="field"><label class="label" for="nv-y">實現年份</label><input type="number" id="nv-y" min="${NOW_Y}" max="${END}" value="2036" style="width:100%"></div>
+      <div class="field" style="grid-column:1/-1"><label class="label" for="nv-t">願景畫面</label><input type="text" id="nv-t" placeholder="例：60 歲和孩子一起跑完一場半程馬拉松" data-enter="add-vision"></div>
+    </div><div style="margin-top:10px"><button class="btn primary" data-act="add-vision">加入告示板</button></div></details>
+    <div class="board">${cards||'<p class="muted">還沒有願景卡。</p>'}</div>
+  </section>
+  <section class="panel"><div class="panel-head"><h2>願景 → 使命任務 → 目標 對應表</h2><span class="small muted">進度＝連結目標的平均進度與任務完成率的平均</span></div>
+    <div class="tbl"><table><thead><tr><th>願景</th><th>領域</th><th>年份</th><th>使命任務</th><th>對應目標</th><th>進度</th></tr></thead><tbody>${rows||'<tr><td colspan="6" class="muted">還沒有願景卡。</td></tr>'}</tbody></table></div>
+  </section>`;
+}
+function handleImg(el){
+  const f=el.files&&el.files[0]; if(!f) return;
+  const v=D.vision.cards.find(x=>x.id===el.dataset.img); if(!v) return;
+  const img=new Image(), u=URL.createObjectURL(f);
+  img.onload=()=>{ const k=Math.min(1,640/Math.max(img.width,img.height)); const c=document.createElement('canvas'); c.width=Math.round(img.width*k); c.height=Math.round(img.height*k); c.getContext('2d').drawImage(img,0,0,c.width,c.height); URL.revokeObjectURL(u); v.img=c.toDataURL('image/jpeg',0.72); save(); render(); };
+  img.onerror=()=>URL.revokeObjectURL(u);
+  img.src=u;
+}
+
+/* 九宮格（曼陀羅 / 原田目標達成表） */
+const MSTAT=['未開始','進行中','習慣化','完成'];
+const MFREQ=['每天','每週','每月','每年','一次','不定期'];
+const MORD=[0,1,2,3,5,6,7,8];
+const mAct=(title,freq)=>({id:uid(),title:title||'',status:'未開始',freq:freq||'',start:'',due:'',why:'',how:'',measure:'',steps:[],log:[]});
+const mTheme=(title,cat,acts)=>({id:uid(),title:title||'',cat:cat||'health',actions:Array.from({length:8},(_,i)=>{const x=acts&&acts[i]; return Array.isArray(x)?mAct(x[0],x[1]):mAct(x||'');})});
+function emptyMandala(){ return {center:'',themes:Array.from({length:8},()=>mTheme('','health'))}; }
+function normMandala(m){
+  if(!m || !Array.isArray(m.themes)) return seedMandala();
+  while(m.themes.length<8) m.themes.push(mTheme('','health'));
+  m.themes.forEach(t=>{ t.actions=t.actions||[]; while(t.actions.length<8) t.actions.push(mAct('')); t.actions.forEach(a=>{ a.steps=a.steps||[]; a.log=a.log||[]; a.status=a.status||'未開始'; }); });
+  m.center=m.center||'';
+  return m;
+}
+function seedMandala(){
+  const m={center:'健康地再活 30 年，人生不留遺憾',themes:[
+    mTheme('身體健康','health',[['每週 150 分鐘有氧','每週'],['每週 2 次肌力訓練','每週'],['11 點前上床','每天'],['每年完整健康檢查','每年'],['少糖少油、多蔬菜','每天'],['每天喝水 2000cc','每天'],['維持理想體重','每月'],['久坐每小時起身走動','每天']]),
+    mTheme('心靈禪修','health',[['每天靜坐 10 分鐘','每天'],['每年精讀一部經典','每年'],['每月一次共修或禪修','每月'],['睡前寫感恩三件事','每天'],['每週半天不碰手機','每週'],['練習慈心觀','每天'],['生氣時先深呼吸十次','不定期'],['每年一次靜修營','每年']]),
+    mTheme('好父親','family',[['每週 2 小時一對一時光','每週'],['睡前說故事、聊天','每天'],['每月一起學一樣新東西','每月'],['參加學校活動','不定期'],['每年一次親子旅行','每年'],['每年寫一封給孩子的信','每年'],['在孩子面前少滑手機','每天'],['多聽少說教','每天']]),
+    mTheme('好老公','family',[['每月一次兩人約會','每月'],['每天說一句感謝','每天'],['主動分擔家務','每天'],['用心準備紀念日','每年'],['每週一次長談','每週'],['支持另一半的興趣','不定期'],['一起規劃家庭財務','每年'],['每年一次兩人旅行','每年']]),
+    mTheme('陪伴母親','family',[['每週一通電話','每週'],['每月一起吃飯','每月'],['每年帶她旅行一次','每年'],['陪同健康檢查','每年'],['整理老照片','一次'],['錄下她的人生故事','一次'],['教她用手機視訊','一次'],['節日一定團聚','每年']]),
+    mTheme('財富自由','money',[['6 個月緊急預備金','一次'],['每月記帳','每月'],['定期定額投入','每月'],['退休金缺口試算','每年'],['檢視保險保障','每年'],['每年資產盤點','每年'],['不碰看不懂的投資','不定期'],['降低固定支出','每年']]),
+    mTheme('學習與事業','learn',[['完成進修學位','一次'],['每年讀 24 本書','每年'],['每年一門線上課程','每年'],['寫文章分享經驗','每週'],['找一位職涯導師','一次'],['拓展跨領域人脈','每月'],['練習外語','每天'],['寫下一頁職涯計畫','一次']]),
+    mTheme('興趣與人際','travel',[['每年一次家庭出國','每年'],['整理收音機收藏','每月'],['手機攝影練習','每週'],['每月聯絡 3 位老朋友','每月'],['用心經營 LINE 群組','每週'],['參加一個社團','每月'],['每年做一次志工','每年'],['每年辦一次同學會','每年']]),
+  ]};
+  const t=dkey(new Date());
+  Object.assign(m.themes[0].actions[0],{status:'進行中',start:t,why:'有體力陪孩子長大，也為了 30 年後還能自己爬山。',
+    how:'週一、三、五早上 6:30 社區快走 50 分鐘；下雨改室內飛輪。出差時改飯店健身房。',measure:'每週記錄總分鐘數，目標 ≥ 150',
+    steps:[{id:uid(),text:'買一雙合腳的運動鞋',done:true},{id:uid(),text:'第 1–2 週：每次 20 分鐘',done:false},{id:uid(),text:'第 3–4 週：每次 30 分鐘',done:false},{id:uid(),text:'第 2 個月起：每週 150 分鐘',done:false}],
+    log:[{id:uid(),date:t,note:'第一次快走 20 分鐘，比想像中輕鬆。'}]});
+  Object.assign(m.themes[2].actions[0],{status:'進行中',start:t,why:'孩子的童年只有一次，陪伴要有固定時間。',
+    how:'每週六上午 9–11 點，手機關靜音，讓孩子決定做什麼：公園、繪本、積木。',measure:'每週打勾一次',
+    steps:[{id:uid(),text:'和另一半講好週六上午的安排',done:false},{id:uid(),text:'列 10 個可以一起做的活動',done:false}],log:[]});
+  return m;
+}
+function mCell(k,t,a){
+  const M=D.mandala, sel=S.mcell&&S.mcell.k===k&&(k==='c'||(S.mcell.t===t&&(k==='t'||S.mcell.a===a)))?' sel':'';
+  if(k==='c') return `<button class="mcell center${sel}" data-act="mcell" data-k="c" title="核心目標"><span>${esc(M.center)||'核心目標'}</span></button>`;
+  const T=M.themes[t];
+  if(k==='t') return `<button class="mcell theme${sel}" style="--c:var(--c-${T.cat})" data-act="mcell" data-k="t" data-t="${t}" title="主題 ${t+1}"><span>${esc(T.title)||'主題 '+(t+1)}</span></button>`;
+  const A=T.actions[a], st=MSTAT.indexOf(A.status);
+  return `<button class="mcell st${st}${A.title.trim()?'':' empty'}${sel}" style="--c:var(--c-${T.cat})" data-act="mcell" data-k="a" data-t="${t}" data-a="${a}" title="${esc(A.title)} · ${esc(A.status)}"><span>${esc(A.title)||'＋'}</span></button>`;
+}
+function mBlock(b){
+  if(b===4){ let h=''; for(let c=0;c<9;c++) h+= c===4?mCell('c'):mCell('t',MORD.indexOf(c)); return `<div class="mblock core">${h}</div>`; }
+  const t=MORD.indexOf(b); let h='';
+  for(let c=0;c<9;c++) h+= c===4?mCell('t',t):mCell('a',t,MORD.indexOf(c));
+  return `<div class="mblock">${h}</div>`;
+}
+function vMandala(){
+  const M=D.mandala, z=S.mzoom;
+  const all=M.themes.flatMap(t=>t.actions), filled=all.filter(a=>a.title.trim());
+  const cnt=MSTAT.map(st=>filled.filter(a=>a.status===st).length);
+  let grid='';
+  if(z===null){ for(let b=0;b<9;b++) grid+=mBlock(b); }
+  else grid = z==='core'?mBlock(4):mBlock(MORD[z]);
+  const chips=`<div class="chips"><button data-act="mzoom" data-t="all" aria-pressed="${z===null}">81 格全圖</button><button data-act="mzoom" data-t="core" aria-pressed="${z==='core'}">核心</button>${M.themes.map((T,i)=>`<button data-act="mzoom" data-t="${i}" aria-pressed="${z===i}">${esc(T.title)||'主題 '+(i+1)}</button>`).join('')}</div>`;
+  const tbars=M.themes.map((T,i)=>{ const f=T.actions.filter(a=>a.title.trim()); const ok=f.filter(a=>a.status==='習慣化'||a.status==='完成').length; const p=f.length?Math.round(100*ok/f.length):0;
+    return `<div class="bar" style="--c:var(--c-${T.cat});grid-template-columns:minmax(0,1fr) 110px 52px"><span class="small">${esc(T.title)||'主題 '+(i+1)}</span><div class="track"><div class="fill" style="width:${p}%"></div></div><span class="num small">${ok}/${f.length}</span></div>`; }).join('');
+  return `
+  <div><span class="label">MANDALA CHART · 原田目標達成表</span><h1>人生 81 宮格</h1>
+    <p class="muted" style="margin-top:6px;max-width:64ch">大谷翔平高中時用這張表，把「8 球團第一指名」拆成 8 個主題、64 個每天做得到的行動。中間是你的核心目標，周圍 8 格是主題，每個主題再展開成 8 個行動。點任何一格，就能寫下它的行動計畫。</p></div>
+  <div class="stats">
+    <div class="stat"><b>${filled.length}<span class="muted" style="font-size:16px"> / 64</span></b><span>已填行動</span></div>
+    <div class="stat"><b>${cnt[1]}</b><span>進行中</span></div>
+    <div class="stat"><b>${cnt[2]}</b><span>已成習慣</span></div>
+    <div class="stat"><b>${cnt[3]}</b><span>已完成</span></div>
+  </div>
+  ${chips}
+  <section class="panel">
+    <div class="mwrap"><div class="mandala ${z===null?'':'zoom'}">${grid}</div></div>
+    <div class="mlegend"><span><i style="background:var(--accent);border-color:var(--accent)"></i>核心目標</span><span><i style="background:color-mix(in oklab,var(--accent) 24%,var(--surface))"></i>主題</span><span><i style="box-shadow:inset 0 -3px 0 var(--warn)"></i>進行中</span><span><i style="box-shadow:inset 0 -3px 0 var(--accent)"></i>習慣化</span><span><i style="background:color-mix(in oklab,var(--accent) 32%,var(--surface))"></i>完成 ✓</span><span><i style="border-style:dashed;background:transparent"></i>尚未填寫</span></div>
+  </section>
+  ${mEditor()}
+  <section class="panel"><div class="panel-head"><h2>各主題落實度</h2><span class="small muted">已成習慣或完成 ÷ 已填行動</span></div>${tbars}</section>`;
+}
+function mEditor(){
+  const c=S.mcell; if(!c) return '';
+  const M=D.mandala;
+  if(c.k==='c') return `<section class="panel" id="meditor"><div class="panel-head"><div><span class="label">中心</span><h2>核心目標</h2></div><button class="btn sm" data-act="mclose">關閉</button></div>
+    <textarea rows="3" data-path="mandala.center" data-rerender placeholder="一個 10 年以上、想到就會興奮的目標">${esc(M.center)}</textarea>
+    <p class="small muted">寫成一句話，越具體越好。周圍 8 格是達成它必須顧好的 8 個主題。</p></section>`;
+  const t=c.t, T=M.themes[t], base=`mandala.themes.${t}`;
+  if(c.k==='t') return `<section class="panel" id="meditor" style="--c:var(--c-${T.cat})"><div class="panel-head"><div><span class="label">主題 ${t+1} / 8</span><h2>主題設定</h2></div>
+      <div class="row"><button class="btn sm" data-act="mzoom" data-t="${t}">放大這個主題</button><button class="btn sm" data-act="mclose">關閉</button></div></div>
+    <div class="form-grid"><div class="field"><label class="label" for="mt-t">主題名稱</label><input type="text" id="mt-t" value="${esc(T.title)}" data-path="${base}.title" data-rerender placeholder="例：身體健康"></div>
+      <div class="field"><label class="label" for="mt-c">對應領域（決定顏色）</label><select id="mt-c" data-path="${base}.cat" data-rerender>${catOptions(T.cat)}</select></div></div>
+    <div class="stack"><span class="label">這個主題的 8 個行動</span>${T.actions.map((A,a)=>`<button class="btn" style="text-align:left;white-space:normal;display:flex;gap:8px;align-items:center" data-act="mcell" data-k="a" data-t="${t}" data-a="${a}"><span class="num muted">${a+1}</span><span style="flex:1">${esc(A.title)||'<span class="muted">（空白，點這裡填寫）</span>'}</span><span class="small muted">${esc(A.status)}</span></button>`).join('')}</div></section>`;
+  const a=c.a, A=T.actions[a], p=`${base}.actions.${a}`;
+  const steps=A.steps.map((x,j)=>`<div class="check ${x.done?'done':''}"><input type="checkbox" ${x.done?'checked':''} data-path="${p}.steps.${j}.done" aria-label="完成"><input type="text" class="bare" value="${esc(x.text)}" data-path="${p}.steps.${j}.text" aria-label="步驟"><button class="x" data-act="mdel-step" data-i="${x.id}" aria-label="刪除步驟">×</button></div>`).join('');
+  const logs=[...A.log].sort((x,y)=>y.date.localeCompare(x.date)).map(l=>`<div class="logrow"><span class="num muted small">${esc(l.date)}</span><span>${esc(l.note)}</span><button class="x" data-act="mdel-log" data-i="${l.id}" aria-label="刪除紀錄">×</button></div>`).join('');
+  const sd=A.steps.filter(x=>x.done).length;
+  return `<section class="panel" id="meditor" style="--c:var(--c-${T.cat})">
+    <div class="panel-head"><div><span class="label">${esc(T.title)||'主題 '+(t+1)} · 行動 ${a+1} / 8</span><h2>行動計畫</h2></div>
+      <div class="row"><button class="btn sm" data-act="mnav" data-d="-1" aria-label="上一格">‹ 上一格</button><button class="btn sm" data-act="mnav" data-d="1" aria-label="下一格">下一格 ›</button><button class="btn sm" data-act="mclose">關閉</button></div></div>
+    <div class="field"><label class="label" for="ma-t">行動</label><input type="text" id="ma-t" value="${esc(A.title)}" data-path="${p}.title" data-rerender placeholder="具體做得到的行動，例如：每週三次快走 30 分鐘"></div>
+    <div class="form-grid">
+      <div class="field"><label class="label" for="ma-s">狀態</label><select id="ma-s" data-path="${p}.status" data-rerender>${MSTAT.map(x=>`<option ${x===A.status?'selected':''}>${x}</option>`).join('')}</select></div>
+      <div class="field"><label class="label" for="ma-f">頻率</label><select id="ma-f" data-path="${p}.freq"><option value="">—</option>${MFREQ.map(x=>`<option ${x===A.freq?'selected':''}>${x}</option>`).join('')}</select></div>
+      <div class="field"><label class="label" for="ma-st">開始日</label><input type="date" id="ma-st" value="${esc(A.start)}" data-path="${p}.start"></div>
+      <div class="field"><label class="label" for="ma-d">預計完成 / 檢視日</label><input type="date" id="ma-d" value="${esc(A.due)}" data-path="${p}.due"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label class="label" for="ma-w">為什麼要做</label><textarea id="ma-w" rows="3" data-path="${p}.why" placeholder="做到之後，生活會有什麼不同？">${esc(A.why)}</textarea></div>
+      <div class="field"><label class="label" for="ma-h">具體做法</label><textarea id="ma-h" rows="3" data-path="${p}.how" placeholder="什麼時候、在哪裡、怎麼做？遇到阻礙時的備案是什麼？">${esc(A.how)}</textarea></div>
+    </div>
+    <div class="field"><label class="label" for="ma-m">怎麼衡量做到了</label><input type="text" id="ma-m" value="${esc(A.measure)}" data-path="${p}.measure" placeholder="例：每週記錄分鐘數 ≥ 150"></div>
+    <div class="grid2">
+      <div class="stack"><div class="panel-head"><h3>執行步驟</h3><span class="num small muted">${sd} / ${A.steps.length}</span></div>${steps||'<p class="small muted">把行動拆成幾個小步驟。</p>'}
+        <div class="row"><input type="text" id="ms-new" placeholder="新增步驟…" data-enter="madd-step" style="flex:1"><button class="btn sm" data-act="madd-step">加入</button></div></div>
+      <div class="stack"><h3>執行紀錄</h3>
+        <div class="row"><input type="text" id="ml-new" placeholder="今天做了什麼、感覺如何…" data-enter="madd-log" style="flex:1"><button class="btn sm" data-act="madd-log">記一筆</button></div>
+        <div class="loglist">${logs||'<p class="small muted">還沒有紀錄。</p>'}</div></div>
+    </div>
+    <div class="row"><button class="btn" data-act="mto-day">加入今天的三件事</button><button class="btn" data-act="mto-week">加入本週待辦</button><span style="flex:1"></span><button class="btn sm danger" data-act="mclear">清空這一格</button></div>
+    <div class="msg" id="mMsg"></div>
+  </section>`;
+}
+const curAct=()=>{ const c=S.mcell; return c&&c.k==='a'?D.mandala.themes[c.t].actions[c.a]:null; };
+function focusEditor(){ setTimeout(()=>{ const e=$('#meditor'); if(e&&e.scrollIntoView) e.scrollIntoView({behavior:'smooth',block:'start'}); },0); }
+
+/* 回顧 */
+function vReview(){
+  const Q=[['proud','這 48 年，最驕傲的三件事'],['regret','還沒做、會遺憾的事'],['lessons','學到最重要的教訓'],['gratitude','最想感謝的人']];
+  const qs=Q.map(([k,l])=>`<div class="field"><label class="label" for="rf-${k}">${l}</label><textarea id="rf-${k}" data-path="reflect.${k}" rows="3">${esc(D.reflect[k])}</textarea></div>`).join('');
+  let decs='';
+  for(let dec=1970; dec<=2020; dec+=10){
+    const evs=D.review.filter(e=>e.year>=dec&&e.year<dec+10).sort((a,b)=>a.year-b.year);
+    const a0=Math.max(0,dec-START), a1=Math.min(dec+9,NOW_Y)-START;
+    decs+=`<div class="decade"><div class="decade-label"><h3>${dec}s</h3><span class="small muted">${a0}–${a1} 歲</span></div>
+      <div class="stack"><input type="text" value="${esc(D.decadeNotes[dec]||'')}" data-path="decadeNotes.${dec}" placeholder="用一句話總結這十年">
+      ${evs.map(e=>`<div class="ev"><span class="y">${e.year}</span><div style="min-width:0"><div class="row">${chip(e.cat)}<span class="t">${esc(e.title)}</span></div>${e.note?`<p class="small muted">${esc(e.note)}</p>`:''}</div><button class="x" data-act="del-review" data-id="${e.id}" aria-label="刪除">×</button></div>`).join('')||'<p class="small muted">還沒有記錄。</p>'}
+      </div></div>`;
+  }
+  return `
+  <div><span class="label">1978 – 2026</span><h1>四十八年回顧</h1><p class="muted" style="margin-top:6px;max-width:60ch">先回頭看，才知道往哪走。把每個轉折點記下來：升學、工作、家庭、健康。不求完整，想到就補。</p></div>
+  <section class="panel"><h2>四個問題</h2><div class="grid2">${qs}</div></section>
+  <section class="panel">
+    <div class="panel-head"><h2>人生大事記</h2></div>
+    <div class="form-grid">
+      <div class="field"><label class="label" for="rv-y">年份</label><input type="number" id="rv-y" min="${START}" max="${NOW_Y}" value="${NOW_Y}" style="width:100%"></div>
+      <div class="field"><label class="label" for="rv-c">分類</label><select id="rv-c">${catOptions('family')}</select></div>
+      <div class="field"><label class="label" for="rv-t">發生了什麼</label><input type="text" id="rv-t" placeholder="例：第一份工作"></div>
+      <div class="field"><label class="label" for="rv-n">心得（可空白）</label><input type="text" id="rv-n"></div>
+    </div>
+    <div><button class="btn primary" data-act="add-review">加入大事記</button></div>
+    <div>${decs}</div>
+  </section>`;
+}
+
+/* 30 年藍圖 */
+function vBlueprint(){
+  const cards=PHASES.map(p=>{
+    const gs=D.goals.filter(g=>g.horizon!=='終身' && g.due>=p.from && g.due<=p.to);
+    return `<section class="panel phase"><div><span class="years">${p.from}–${p.to} · 你 ${ageAt(p.from)}–${ageAt(p.to)} 歲 · 孩子 ${kidAt(p.from)}–${kidAt(p.to)} 歲</span><h2>${p.name}</h2></div>
+      <textarea data-path="phases.${p.id}.theme" rows="3" aria-label="${p.name} 主題">${esc((D.phases[p.id]||{}).theme)}</textarea>
+      ${gs.length?`<div class="stack">${gs.map(g=>`<div class="row small">${chip(g.cat)}<span>${esc(g.title)}</span><span class="num muted">${g.due}</span></div>`).join('')}</div>`:'<p class="small muted">這個階段還沒有到期的目標。</p>'}
+    </section>`;}).join('');
+  let rows='';
+  for(let y=NOW_Y;y<=END;y++){
+    const p=phaseOf(y), m=momAt(y), th=(D.years[y]||{}).theme||'';
+    rows+=`<tr class="${y===today.getFullYear()?'cur':''}"><td class="num">${y}</td><td class="num">${ageAt(y)}</td><td class="num">${kidAt(y)}</td><td class="num">${m??'—'}</td><td>${p.name}</td><td style="min-width:200px">${esc(th)||'<span class="muted">—</span>'}</td><td><button class="btn sm" data-act="year-jump" data-y="${y}">編輯</button></td></tr>`;
+  }
+  return `
+  <div><span class="label">2026 – 2056</span><h1>三十年藍圖</h1><p class="muted" style="margin-top:6px;max-width:60ch">三十年太長，切成四個階段。每個階段一句主題，每一年再定一個年度主題，從大到小往下拆。</p></div>
+  <div class="grid2">${cards}</div>
+  <section class="panel"><div class="panel-head"><h2>年齡對照表</h2><span class="small muted">母親年齡請在「設定」填出生年</span></div>
+    <div class="tbl"><table><thead><tr><th>年份</th><th>你</th><th>孩子</th><th>母親</th><th>階段</th><th>年度主題</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>
+  </section>`;
+}
+
+/* 年計畫 */
+function vYear(){
+  const y=S.year, Y=ensureYear(y), p=phaseOf(y)||PHASES[0];
+  const done=Y.items.filter(i=>i.done).length;
+  const blocks=CATS.map(c=>{
+    const its=Y.items.filter(i=>i.cat===c.id);
+    return `<div class="cat-block"><div class="row">${chip(c.id)}<span class="small muted">${c.subs.join('、')}</span></div>
+      ${its.map(i=>`<div class="check ${i.done?'done':''}"><input type="checkbox" ${i.done?'checked':''} data-path="${itemPath('years.'+y,Y.items,i)}.done" aria-label="完成"><input type="text" class="bare" value="${esc(i.text)}" data-path="${itemPath('years.'+y,Y.items,i)}.text"><button class="x" data-act="del-item" data-scope="year" data-id="${i.id}" aria-label="刪除">×</button></div>`).join('')}
+      <div class="row"><input type="text" id="ya-${c.id}" placeholder="新增 ${c.name} 年度成果…" data-enter="add-item" data-scope="year" data-cat="${c.id}" style="flex:1"><button class="btn sm" data-act="add-item" data-scope="year" data-cat="${c.id}">加入</button></div></div>`;
+  }).join('');
+  const dueGoals=D.goals.filter(g=>g.horizon!=='終身' && Number(g.due)===y);
+  const opts=[]; for(let i=NOW_Y;i<=END;i++) opts.push(`<option value="${i}" ${i===y?'selected':''}>${i}</option>`);
+  return `
+  <div class="navbar"><button class="btn" data-act="year-nav" data-d="-1" aria-label="前一年">‹</button>
+    <h1><span class="num">${y}</span> 年計畫</h1>
+    <select id="yearSel" data-act-change="year-sel" style="width:auto">${opts.join('')}</select>
+    <button class="btn" data-act="year-nav" data-d="1" aria-label="後一年">›</button></div>
+  ${agesHTML(y)}
+  <section class="panel"><div class="panel-head"><h2>年度主題</h2><span class="small muted">${p.name}（${p.from}–${p.to}）：${esc((D.phases[p.id]||{}).theme)}</span></div>
+    <input type="text" value="${esc(Y.theme)}" data-path="years.${y}.theme" placeholder="用一句話定義這一年，例如「重建」">
+  </section>
+  <section class="panel"><div class="panel-head"><h2>年度成果清單</h2><span class="num small muted">${done} / ${Y.items.length} 完成</span></div>${blocks}</section>
+  <div class="grid2">
+    <section class="panel"><h2>今年到期的目標</h2>${dueGoals.length?dueGoals.map(g=>`<div class="bar" style="--c:var(--c-${g.cat});grid-template-columns:1fr 120px 40px"><span class="small">${esc(g.title)}</span><div class="track"><div class="fill" style="width:${g.progress}%"></div></div><span class="num small">${g.progress}%</span></div>`).join(''):'<p class="small muted">沒有今年到期的目標。</p>'}</section>
+    <section class="panel"><h2>年終回顧</h2><textarea rows="5" data-path="years.${y}.review" placeholder="這一年完成了什麼？最大的收穫？明年要調整什麼？">${esc(Y.review)}</textarea></section>
+  </div>`;
+}
+function itemPath(base,arr,item){ return `${base}.items.${arr.indexOf(item)}`; }
+
+/* 週計畫 */
+function vWeek(){
+  const ws=S.week, wk=isoWeekKey(ws), W=ensureWeek(wk), tk=dkey(today);
+  const days=[...Array(7)].map((_,i)=>addDays(ws,i));
+  const strip=days.map(d=>{ const k=dkey(d), dd=D.days[k]; const n=dd?dd.top3.filter(t=>t.done).length:0;
+    return `<button class="wday ${k===tk?'today':''}" data-act="day-jump" data-k="${k}"><small>週${WD[d.getDay()]}</small><b>${d.getDate()}</b><small>${dd?n+'/3':'—'}</small></button>`; }).join('');
+  const big=W.big3.map((t,i)=>`<div class="check"><span class="num muted">${i+1}</span><input type="text" value="${esc(t)}" data-path="weeks.${wk}.big3.${i}" placeholder="這週一定要完成的大事"></div>`).join('');
+  const items=W.items.map((i,idx)=>`<div class="check ${i.done?'done':''}"><input type="checkbox" ${i.done?'checked':''} data-path="weeks.${wk}.items.${idx}.done" aria-label="完成">${chip(i.cat)}<input type="text" class="bare" value="${esc(i.text)}" data-path="weeks.${wk}.items.${idx}.text"><button class="x" data-act="del-item" data-scope="week" data-id="${i.id}" aria-label="刪除">×</button></div>`).join('');
+  const yTheme=(D.years[ws.getFullYear()]||{}).theme;
+  const last=addDays(ws,6);
+  return `
+  <div class="navbar"><button class="btn" data-act="week-nav" data-d="-7" aria-label="上一週">‹</button>
+    <h1><span class="num">${wk.replace('-W',' 第 ')}</span> 週</h1>
+    <button class="btn sm" data-act="week-today">本週</button>
+    <button class="btn" data-act="week-nav" data-d="7" aria-label="下一週">›</button></div>
+  <p class="muted small">${ws.getMonth()+1}/${ws.getDate()} – ${last.getMonth()+1}/${last.getDate()}${yTheme?` · 年度主題：${esc(yTheme)}`:''}</p>
+  <div class="weekstrip">${strip}</div>
+  <div class="grid2">
+    <section class="panel"><div class="panel-head"><h2>三顆大石頭</h2><span class="small muted">先放大石頭，再放小石子</span></div>${big}</section>
+    <section class="panel"><h2>本週待辦</h2>${items||'<p class="small muted">還沒有待辦。</p>'}
+      <div class="row"><select id="wa-cat" style="width:auto">${catOptions('family')}</select><input type="text" id="wa-text" placeholder="新增待辦…" data-enter="add-item" data-scope="week" style="flex:1"><button class="btn sm" data-act="add-item" data-scope="week">加入</button></div></section>
+  </div>
+  <section class="panel"><h2>週日回顧</h2><div class="grid3">
+    <div class="field"><label class="label" for="wr1">這週做得好的</label><textarea id="wr1" data-path="weeks.${wk}.review.good">${esc(W.review.good)}</textarea></div>
+    <div class="field"><label class="label" for="wr2">需要調整的</label><textarea id="wr2" data-path="weeks.${wk}.review.improve">${esc(W.review.improve)}</textarea></div>
+    <div class="field"><label class="label" for="wr3">下週最重要的事</label><textarea id="wr3" data-path="weeks.${wk}.review.next">${esc(W.review.next)}</textarea></div>
+  </div></section>`;
+}
+
+/* 日計畫 */
+function vDay(){
+  const d=S.day, k=dkey(d), T=ensureDay(k);
+  const top=T.top3.map((t,i)=>`<div class="check ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} data-path="days.${k}.top3.${i}.done" aria-label="完成"><input type="text" value="${esc(t.text)}" data-path="days.${k}.top3.${i}.text" placeholder="最重要的事 ${i+1}"></div>`).join('');
+  const B=[['morning','早晨 6–9'],['noon','上午 9–12'],['afternoon','下午 13–18'],['evening','晚上 19–23']];
+  const blocks=B.map(([b,l])=>`<div class="field"><label class="label" for="db-${b}">${l}</label><textarea id="db-${b}" rows="2" data-path="days.${k}.blocks.${b}">${esc(T.blocks[b])}</textarea></div>`).join('');
+  const hs=D.habits.map((h,i)=>`<label class="habit"><input type="checkbox" ${T.habits[i]?'checked':''} data-path="days.${k}.habits.${i}"><span>${esc(h)}</span></label>`).join('');
+  const hd=D.habits.filter((_,i)=>T.habits[i]).length;
+  return `
+  <div class="navbar"><button class="btn" data-act="day-nav" data-d="-1" aria-label="前一天">‹</button>
+    <h1><span class="num">${d.getMonth()+1}/${d.getDate()}</span> 星期${WD[d.getDay()]}</h1>
+    <button class="btn sm" data-act="day-today">今天</button>
+    <button class="btn" data-act="day-nav" data-d="1" aria-label="後一天">›</button></div>
+  ${agesHTML(d.getFullYear())}
+  <div class="grid2">
+    <section class="panel"><div class="panel-head"><h2>今天最重要的三件事</h2><button class="btn sm" data-act="week-of-day">本週計畫</button></div>${top}</section>
+    <section class="panel"><div class="panel-head"><h2>每日習慣</h2><span class="num small muted">${hd} / ${D.habits.length}</span></div><div class="stack">${hs}</div></section>
+  </div>
+  <section class="panel"><h2>時間區塊</h2><div class="grid2">${blocks}</div></section>
+  <div class="grid2">
+    <section class="panel"><h2>感恩三件事</h2><textarea rows="3" data-path="days.${k}.gratitude" placeholder="今天值得感謝的人或事">${esc(T.gratitude)}</textarea></section>
+    <section class="panel"><h2>今日反思</h2><textarea rows="3" data-path="days.${k}.note" placeholder="今天學到什麼？明天要調整什麼？">${esc(T.note)}</textarea></section>
+  </div>`;
+}
+
+/* 目標 */
+function vGoals(){
+  const f=S.gfilter;
+  const chips=`<div class="chips"><button data-act="gfilter" data-c="all" aria-pressed="${f==='all'}">全部 ${D.goals.length}</button>${CATS.map(c=>`<button data-act="gfilter" data-c="${c.id}" aria-pressed="${f===c.id}">${c.name} ${D.goals.filter(g=>g.cat===c.id).length}</button>`).join('')}</div>`;
+  const subOpts=CATS.map(c=>`<optgroup label="${c.name}">${c.subs.map(s=>`<option value="${c.id}|${s}">${c.name}／${s}</option>`).join('')}</optgroup>`).join('');
+  const list=CATS.filter(c=>f==='all'||f===c.id).map(c=>{
+    const gs=D.goals.filter(g=>g.cat===c.id); if(!gs.length) return '';
+    return `<section class="panel"><div class="panel-head"><h2>${c.name}</h2><span class="small muted">${c.subs.join('、')}</span></div><div class="grid2">${gs.map(g=>{const i=D.goals.indexOf(g); return `
+      <div class="goal"><div class="goal-top"><span class="chip" style="--c:var(--c-${g.cat})">${esc(g.sub)}</span><input type="text" class="bare t" value="${esc(g.title)}" data-path="goals.${i}.title" aria-label="目標"><button class="x" data-act="del-goal" data-id="${g.id}" aria-label="刪除">×</button></div>
+        <div class="row small muted"><select data-path="goals.${i}.horizon" data-rerender style="width:auto">${HORIZONS.map(h=>`<option ${h===g.horizon?'selected':''}>${h}</option>`).join('')}</select>到期 <input type="number" min="${NOW_Y}" max="${END}" value="${g.due}" data-path="goals.${i}.due" data-num aria-label="到期年"></div>
+        <input type="text" value="${esc(g.measure)}" data-path="goals.${i}.measure" placeholder="怎麼衡量？">
+        <input type="text" value="${esc(g.why)}" data-path="goals.${i}.why" placeholder="為什麼重要？">
+        ${(()=>{const vs=D.vision.cards.filter(v=>(v.goalIds||[]).includes(g.id));return vs.length?`<p class="small muted">對應願景：${vs.map(v=>esc(v.title)).join('、')}</p>`:'';})()}
+        <div class="prog"><input type="range" min="0" max="100" step="5" value="${g.progress}" data-path="goals.${i}.progress" data-out="gp-${g.id}" data-unit="%" aria-label="進度"><span class="num small" id="gp-${g.id}">${g.progress}%</span></div>
+      </div>`;}).join('')}</div></section>`;
+  }).join('');
+  return `
+  <div><span class="label">目標設定</span><h1>七個人生領域</h1><p class="muted" style="margin-top:6px;max-width:62ch">每個目標寫清楚：做什麼、怎麼衡量、為什麼重要、何時完成。終身目標是方向，十年與年度目標是里程碑。</p></div>
+  <section class="panel"><details><summary>新增目標</summary><div class="stack" style="margin-top:12px">
+    <div class="form-grid">
+      <div class="field"><label class="label" for="ng-c">領域 / 子項</label><select id="ng-c">${subOpts}</select></div>
+      <div class="field"><label class="label" for="ng-h">期程</label><select id="ng-h">${HORIZONS.map(h=>`<option>${h}</option>`).join('')}</select></div>
+      <div class="field"><label class="label" for="ng-d">到期年</label><input type="number" id="ng-d" min="${NOW_Y}" max="${END}" value="${NOW_Y+1}" style="width:100%"></div>
+    </div>
+    <div class="field"><label class="label" for="ng-t">目標</label><input type="text" id="ng-t" placeholder="例：每週帶孩子去游泳一次"></div>
+    <div class="form-grid"><div class="field"><label class="label" for="ng-m">怎麼衡量</label><input type="text" id="ng-m"></div><div class="field"><label class="label" for="ng-w">為什麼重要</label><input type="text" id="ng-w"></div></div>
+    <div><button class="btn primary" data-act="add-goal">加入目標</button></div></div></details></section>
+  ${chips}
+  ${list||'<p class="muted">這個領域還沒有目標。</p>'}`;
+}
+
+/* 設定 */
+function vSettings(){
+  const P=D.profile, G=D.settings.gh;
+  return `
+  <h1>設定</h1>
+  <section class="panel"><h2>基本資料</h2><div class="form-grid">
+    <div class="field"><label class="label" for="pf-n">稱呼</label><input type="text" id="pf-n" value="${esc(P.name)}" data-path="profile.name"></div>
+    <div class="field"><label class="label" for="pf-b">你的出生年</label><input type="number" id="pf-b" value="${esc(P.birthYear)}" data-path="profile.birthYear" data-num style="width:100%"></div>
+    <div class="field"><label class="label" for="pf-k">孩子出生年</label><input type="number" id="pf-k" value="${esc(P.childBirthYear)}" data-path="profile.childBirthYear" data-num style="width:100%"></div>
+    <div class="field"><label class="label" for="pf-m">母親出生年</label><input type="number" id="pf-m" value="${esc(P.motherBirthYear)}" data-path="profile.motherBirthYear" style="width:100%"></div></div>
+    <div class="field"><label class="label" for="pf-mo">人生座右銘</label><textarea id="pf-mo" data-path="profile.motto" rows="2">${esc(P.motto)}</textarea></div>
+  </section>
+  <section class="panel"><h2>每日習慣清單</h2><p class="small muted">一行一個，會出現在日計畫。</p>
+    <textarea id="habitsTA" rows="6">${esc(D.habits.join('\n'))}</textarea><div><button class="btn" data-act="save-habits">更新習慣</button> <span class="msg" id="habMsg"></span></div></section>
+  <section class="panel"><h2>雲端同步（GitHub 私人資料倉庫）</h2>
+    <p class="small muted">資料放在<b>另一個私人倉庫</b>（不要開 Pages），只有持有 Token 的人讀得到，檔案本身也加密。修改後約 45 秒、切換分頁或上鎖時自動上傳；打開網頁或切回來時自動下載最新版本。Token 只存在這台裝置，不會上傳。</p>
+    <div class="form-grid">
+      <div class="field"><label class="label" for="gh-o">GitHub 帳號</label><input type="text" id="gh-o" value="${esc(G.owner)}" data-path="settings.gh.owner" autocomplete="off"></div>
+      <div class="field"><label class="label" for="gh-r">資料倉庫</label><input type="text" id="gh-r" value="${esc(G.repo)}" data-path="settings.gh.repo" placeholder="例：my-life-data" autocomplete="off"></div>
+      <div class="field"><label class="label" for="gh-b">分支</label><input type="text" id="gh-b" value="${esc(G.branch)}" data-path="settings.gh.branch"></div>
+      <div class="field"><label class="label" for="gh-p">資料檔名</label><input type="text" id="gh-p" value="${esc(G.path)}" data-path="settings.gh.path"></div></div>
+    <div class="field"><label class="label" for="gh-t">Fine-grained Token（只授權資料倉庫，Contents 讀寫）</label><input type="password" id="gh-t" value="${esc(G.token)}" data-path="settings.gh.token" autocomplete="off"></div>
+    <div class="row"><button class="btn primary" data-act="sync-connect">連線並同步</button><button class="btn" data-act="sync-now">立即同步</button></div>
+    <div class="msg" id="ghState"></div></section>
+  <section class="panel"><h2>備份與還原</h2>
+    <div class="row"><button class="btn" data-act="export">產生加密備份</button><a class="btn" id="dl" hidden>下載備份檔</a><button class="btn" id="cpBtn" data-act="copy-export" hidden>複製</button></div>
+    <textarea id="exportTA" rows="3" readonly hidden></textarea>
+    <details><summary class="small">還原備份（會覆蓋目前資料）</summary><div class="stack" style="margin-top:8px">
+      ${importBox('st')}<div class="field"><label class="label" for="st-pw">備份的密碼（與目前相同可留空）</label><input type="password" id="st-pw"></div></div></details>
+    <div class="msg" id="bkMsg"></div></section>
+  <section class="panel"><h2>密碼</h2><div class="form-grid">
+    <div class="field"><label class="label" for="cp-o">目前密碼</label><input type="password" id="cp-o"></div>
+    <div class="field"><label class="label" for="cp-n">新密碼</label><input type="password" id="cp-n"></div>
+    <div class="field"><label class="label" for="cp-n2">再輸入新密碼</label><input type="password" id="cp-n2"></div></div>
+    <div><button class="btn" data-act="change-pw">更換密碼</button></div><div class="msg" id="pwMsg"></div>
+    <p class="small muted">閒置 20 分鐘會自動上鎖。換密碼後，記得重新「上傳到 GitHub」。</p></section>`;
+}
+
+/* ---------- events ---------- */
+document.addEventListener('input', e=>{
+  const el=e.target, p=el.dataset.path; if(!p||!D) return;
+  let v = el.type==='checkbox' ? el.checked : (el.type==='range'||el.dataset.num!==undefined) ? Number(el.value) : el.value;
+  setPath(D,p,v);
+  if(p.startsWith('wheel.')) D.wheelDate=dkey(new Date());
+  if(el.dataset.out){ const o=document.getElementById(el.dataset.out); if(o) o.textContent=v+(el.dataset.unit||''); }
+  save();
+});
+document.addEventListener('change', e=>{
+  const el=e.target;
+  if(el.id==='yearSel'){ S.year=Number(el.value); return render(); }
+  if(el.dataset.img){ handleImg(el); return; }
+  if(el.dataset.path && (el.type==='checkbox' || el.dataset.rerender!==undefined || el.type==='range')) render();
+});
+document.addEventListener('keydown', e=>{
+  if(e.key!=='Enter') return;
+  const el=e.target;
+  if(el.dataset.enter){ e.preventDefault(); ACT[el.dataset.enter](el); }
+  else if(el.id==='pw' ) ACT.unlock();
+  else if(el.id==='pw2') ACT.create();
+});
+document.addEventListener('click', e=>{
+  const b=e.target.closest('[data-act]'); if(!b) return;
+  const f=ACT[b.dataset.act]; if(f) f(b,e);
+});
+function msg(id,t,cls){ const m=$('#'+id); if(m){ m.textContent=t; m.className='msg '+(cls||''); } }
+function armed(b,label){ if(b.dataset.armed){ return true; } b.dataset.armed='1'; const o=b.textContent; b.textContent=label||'再按一次確認'; b.classList.add('armed'); setTimeout(()=>{ if(b.isConnected){ delete b.dataset.armed; b.textContent=o; b.classList.remove('armed'); } },4000); return false; }
+
+const ACT={
+  async create(){
+    const a=$('#pw1').value, b=$('#pw2').value;
+    if(a.length<6) return msg('lockMsg','密碼至少 6 個字。','err');
+    if(a!==b) return msg('lockMsg','兩次輸入的密碼不一樣。','err');
+    msg('lockMsg','建立中…');
+    SALT=crypto.getRandomValues(new Uint8Array(16)); KEY=await deriveKey(a,SALT); D=seed();
+    lsSet(await encryptData(false)); openApp();
+  },
+  async unlock(){
+    const pw=$('#pw').value; if(!pw) return msg('lockMsg','請輸入密碼。','err');
+    msg('lockMsg','解密中…');
+    try{ const r=await decryptBlob(S.pendingBlob,pw); KEY=r.key; SALT=r.salt; D=migrate(r.data);
+      if(S.bootGh){ D.settings.gh={...S.bootGh}; D.sync={sha:S.bootSha,dirty:false}; S.bootGh=null; }
+      lsSet(await encryptData(false)); openApp(); }
+    catch(e){ msg('lockMsg','密碼不對，或檔案不是這套系統的備份。','err'); }
+  },
+  async 'lk-load'(){
+    const txt=await readImport('lk'); if(!txt) return msg('lockMsg','請先選擇檔案或貼上內容。','err');
+    try{ JSON.parse(txt).ct; S.pendingBlob=txt; lockView('unlock','已載入備份，輸入該備份的密碼。'); }
+    catch(e){ msg('lockMsg','看不懂這份內容，請確認是 .enc.json 備份。','err'); }
+  },
+  'reset-local'(b){ if(!armed(b,'確定清除？再按一次')) return; try{ localStorage.removeItem(LS); }catch(e){} S.pendingBlob=null; lockView('create'); },
+  lock(){ lockApp(); },
+  tab(b){ S.tab=b.dataset.tab; render(); window.scrollTo(0,0); },
+  'year-jump'(b){ const y=Number(b.dataset.y); if(y<NOW_Y){ S.tab='review'; } else { S.year=y; S.tab='year'; } render(); window.scrollTo(0,0); },
+  'year-nav'(b){ S.year=Math.min(END,Math.max(NOW_Y,S.year+Number(b.dataset.d))); render(); },
+  'week-nav'(b){ S.week=addDays(S.week,Number(b.dataset.d)); render(); },
+  'week-today'(){ S.week=weekStart(new Date()); render(); },
+  'week-of-day'(){ S.week=weekStart(S.day); S.tab='week'; render(); },
+  'day-nav'(b){ S.day=addDays(S.day,Number(b.dataset.d)); render(); },
+  'day-today'(){ S.day=new Date(); render(); },
+  'day-jump'(b){ S.day=parseD(b.dataset.k); S.tab='day'; render(); window.scrollTo(0,0); },
+  gfilter(b){ S.gfilter=b.dataset.c; render(); },
+  'clear-sample'(b){
+    if(!armed(b,'確定清除所有範例？再按一次')) return;
+    const keep={profile:D.profile, habits:D.habits, settings:D.settings, sync:D.sync, lastBackup:D.lastBackup};
+    D={v:1,isSample:false,profile:{...keep.profile,name:keep.profile.name},habits:keep.habits,wheel:{},wheelDate:'',reflect:{proud:'',regret:'',lessons:'',gratitude:''},
+       review:[{id:uid(),year:Number(keep.profile.birthYear)||1978,cat:'family',title:'出生',note:''}],decadeNotes:{},
+       phases:{p1:{theme:''},p2:{theme:''},p3:{theme:''},p4:{theme:''}},goals:[],years:{},weeks:{},days:{},settings:keep.settings,vision:{statement:'',mission:'',values:[],cards:[]},mandala:emptyMandala(),sync:keep.sync,lastBackup:keep.lastBackup};
+    CATS.forEach(c=>D.wheel[c.id]=5); save(); render();
+  },
+  'add-review'(){
+    const y=Number($('#rv-y').value), t=$('#rv-t').value.trim();
+    if(!t || y<START || y>NOW_Y) return $('#rv-t').focus();
+    D.review.push({id:uid(),year:y,cat:$('#rv-c').value,title:t,note:$('#rv-n').value.trim()}); save(); render();
+  },
+  'del-review'(b){ D.review=D.review.filter(e=>e.id!==b.dataset.id); save(); render(); },
+  'add-item'(b){
+    if(b.dataset.scope==='year'){
+      const c=b.dataset.cat, inp=$('#ya-'+c), t=inp.value.trim(); if(!t) return;
+      ensureYear(S.year).items.push({id:uid(),cat:c,text:t,done:false});
+      save(); render(); const n=$('#ya-'+c); n&&n.focus();
+    } else {
+      const t=$('#wa-text').value.trim(); if(!t) return;
+      const c=$('#wa-cat').value;
+      ensureWeek(isoWeekKey(S.week)).items.push({id:uid(),cat:c,text:t,done:false});
+      save(); render(); $('#wa-cat').value=c; $('#wa-text').focus();
+    }
+  },
+  'del-item'(b){
+    const arr = b.dataset.scope==='year' ? ensureYear(S.year).items : ensureWeek(isoWeekKey(S.week)).items;
+    const i=arr.findIndex(x=>x.id===b.dataset.id); if(i>-1) arr.splice(i,1); save(); render();
+  },
+  'add-goal'(){
+    const t=$('#ng-t').value.trim(); if(!t) return $('#ng-t').focus();
+    const [c,s]=$('#ng-c').value.split('|');
+    D.goals.push({id:uid(),cat:c,sub:s,horizon:$('#ng-h').value,due:Number($('#ng-d').value)||END,title:t,measure:$('#ng-m').value.trim(),why:$('#ng-w').value.trim(),progress:0});
+    S.gfilter=c; save(); render();
+  },
+  'del-goal'(b){ if(!armed(b,'刪？')) return; D.goals=D.goals.filter(g=>g.id!==b.dataset.id); save(); render(); },
+  'save-habits'(){ const l=$('#habitsTA').value.split('\n').map(s=>s.trim()).filter(Boolean); if(!l.length) return msg('habMsg','至少留一個習慣。','err'); D.habits=l; save(); msg('habMsg','已更新。','ok'); },
+  async export(){
+    D.lastBackup=dkey(new Date()); save();
+    const blob=await encryptData(true);
+    const ta=$('#exportTA'); ta.value=blob; ta.hidden=false;
+    const a=$('#dl'); const t=new Date();
+    a.href=URL.createObjectURL(new Blob([blob],{type:'application/json'}));
+    a.download=`lifeplan-${t.getFullYear()}${pad(t.getMonth()+1)}${pad(t.getDate())}.enc.json`; a.hidden=false;
+    $('#cpBtn').hidden=false;
+    msg('bkMsg','備份已產生（已加密，Token 不含在內）。下載檔案，或複製內容存到安全的地方。','ok');
+  },
+  'copy-export'(){
+    const ta=$('#exportTA');
+    navigator.clipboard.writeText(ta.value).then(()=>msg('bkMsg','已複製。','ok')).catch(()=>{ ta.focus(); ta.select(); msg('bkMsg','請按 Ctrl/⌘+C 複製已選取的內容。'); });
+  },
+  async 'st-load'(b){
+    const txt=await readImport('st'); if(!txt) return msg('bkMsg','請先選擇檔案或貼上內容。','err');
+    if(!armed(b,'會覆蓋目前資料，再按一次')) return;
+    const pw=$('#st-pw').value;
+    try{
+      let data;
+      if(pw){ data=(await decryptBlob(txt,pw)).data; }
+      else { const o=JSON.parse(txt); const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:unb64(o.iv)},KEY,unb64(o.ct)); if(o.salt!==b64(SALT)) throw 0; data=JSON.parse(dec.decode(pt)); }
+      const gh0=D.settings.gh, sha0=D.sync.sha; D=migrate(data); D.settings.gh=gh0; D.sync={sha:sha0,dirty:true}; save(); render(); msg('bkMsg','已還原，稍後自動同步到雲端。','ok');
+    }catch(e){ msg('bkMsg','無法解密：請在「備份的密碼」欄輸入當時的密碼。','err'); }
+  },
+  async 'change-pw'(){
+    const o=$('#cp-o').value, n=$('#cp-n').value, n2=$('#cp-n2').value;
+    try{ await decryptBlob(lsGet()||await encryptData(false),o); }catch(e){ return msg('pwMsg','目前密碼不對。','err'); }
+    if(n.length<6) return msg('pwMsg','新密碼至少 6 個字。','err');
+    if(n!==n2) return msg('pwMsg','兩次新密碼不一樣。','err');
+    SALT=crypto.getRandomValues(new Uint8Array(16)); KEY=await deriveKey(n,SALT);
+    lsSet(await encryptData(false)); msg('pwMsg','密碼已更換。其他裝置下次同步時，會請你輸入新密碼。','ok');
+    if(ghReady()){ EDIT++; D.sync.dirty=true; pushNow(true,true); }
+  },
+  async 'gh-boot'(){
+    const G={owner:$('#bo-o').value.trim(),repo:$('#bo-r').value.trim(),branch:'main',path:$('#bo-p').value.trim()||'lifeplan.enc.json',token:$('#bo-t').value.trim()};
+    if(!G.owner||!G.repo||!G.token) return msg('lockMsg','請填 GitHub 帳號、資料倉庫和 Token。','err');
+    msg('lockMsg','從 GitHub 載入中…');
+    try{
+      const rem=await fetchRemote(G);
+      if(!rem) return msg('lockMsg','倉庫裡還沒有資料檔。請先在原本的裝置到「設定 → 雲端同步」按「連線並同步」。','err');
+      JSON.parse(rem.blob).ct;
+      S.pendingBlob=rem.blob; S.bootGh=G; S.bootSha=rem.sha;
+      lockView('unlock','已從 GitHub 載入，請輸入密碼。');
+    }catch(e){ msg('lockMsg','載入失敗：'+e.message,'err'); }
+  },
+  'sync-now'(){ if(!ghReady()){ S.tab='settings'; render(); return setSync('off','請先填完帳號、資料倉庫、檔名與 Token'); } syncCheck(); },
+  'sync-connect'(){ if(!ghReady()) return setSync('off','請填完帳號、資料倉庫、檔名與 Token'); save(true); syncCheck(); },
+  'use-remote'(b){
+    const c=SYNC.conflict; if(!c) return;
+    if(!armed(b,'這台未同步的修改會被取代，再按一次')) return;
+    if(c.pw){
+      S.bootGh={...D.settings.gh}; S.bootSha=c.sha; S.pendingBlob=c.blob;
+      KEY=null; D=null; SALT=null; clearTimeout(saveTimer); clearTimeout(SYNC.timer); SYNC.conflict=null;
+      $('#view').innerHTML=''; $('#app').hidden=true; $('#lock').hidden=false;
+      return lockView('unlock','雲端資料是用另一組密碼加密的，請輸入那組密碼。');
+    }
+    adoptRemote(c.data,c.sha);
+  },
+  'use-local'(b){
+    const c=SYNC.conflict; if(!c) return;
+    if(!armed(b,'雲端版本會被覆蓋，再按一次')) return;
+    D.sync.sha=c.sha; D.sync.dirty=true; SYNC.conflict=null; render(); pushNow(true,true);
+  },
+  'add-vision'(){
+    const t=$('#nv-t').value.trim(); if(!t) return $('#nv-t').focus();
+    D.vision.cards.push({id:uid(),cat:$('#nv-c').value,title:t,year:Math.min(END,Math.max(NOW_Y,Number($('#nv-y').value)||END)),note:'',img:'',goalIds:[],missions:[]});
+    save(); render();
+  },
+  'del-vision'(b){ if(!armed(b,'確定刪除？')) return; D.vision.cards=D.vision.cards.filter(v=>v.id!==b.dataset.v); save(); render(); },
+  'add-mission'(b){
+    const v=D.vision.cards.find(x=>x.id===b.dataset.v); if(!v) return;
+    const t=$('#vm-'+v.id).value.trim(); if(!t) return;
+    v.missions.push({id:uid(),text:t,done:false}); save(); render();
+    const n=$('#vm-'+v.id); n&&n.focus();
+  },
+  'del-mission'(b){ const v=D.vision.cards.find(x=>x.id===b.dataset.v); if(!v) return; v.missions=v.missions.filter(m=>m.id!==b.dataset.m); save(); render(); },
+  'link-goal'(b){
+    const v=D.vision.cards.find(x=>x.id===b.dataset.v); if(!v) return;
+    const i=v.goalIds.indexOf(b.dataset.g); if(i>-1) v.goalIds.splice(i,1); else v.goalIds.push(b.dataset.g);
+    S.openLinks.add(v.id); save(); render();
+  },
+  'del-img'(b){ const v=D.vision.cards.find(x=>x.id===b.dataset.v); if(!v) return; v.img=''; save(); render(); },
+  'add-value'(){ const t=$('#nv-val').value.trim(); if(!t) return; D.vision.values.push(t); save(); render(); const n=$('#nv-val'); n&&n.focus(); },
+  'del-value'(b){ D.vision.values.splice(Number(b.dataset.i),1); save(); render(); },
+  mcell(b){
+    const k=b.dataset.k; S.mcell={k,t:Number(b.dataset.t),a:Number(b.dataset.a)};
+    render(); focusEditor();
+  },
+  mzoom(b){ const v=b.dataset.t; S.mzoom = v==='all'?null : v==='core'?'core' : Number(v); render(); window.scrollTo&&window.scrollTo(0,0); },
+  mclose(){ S.mcell=null; render(); },
+  mnav(b){ const c=S.mcell; if(!c||c.k!=='a') return; c.a=(c.a+Number(b.dataset.d)+8)%8; render(); focusEditor(); },
+  'madd-step'(){ const A=curAct(); const t=$('#ms-new').value.trim(); if(!A||!t) return; A.steps.push({id:uid(),text:t,done:false}); save(); render(); const n=$('#ms-new'); n&&n.focus(); },
+  'mdel-step'(b){ const A=curAct(); if(!A) return; A.steps=A.steps.filter(x=>x.id!==b.dataset.i); save(); render(); },
+  'madd-log'(){ const A=curAct(); const t=$('#ml-new').value.trim(); if(!A||!t) return; A.log.push({id:uid(),date:dkey(new Date()),note:t}); if(A.status==='未開始') A.status='進行中'; save(); render(); const n=$('#ml-new'); n&&n.focus(); },
+  'mdel-log'(b){ const A=curAct(); if(!A) return; A.log=A.log.filter(x=>x.id!==b.dataset.i); save(); render(); },
+  'mto-day'(){
+    const A=curAct(); if(!A||!A.title.trim()) return msg('mMsg','請先填寫行動名稱。','err');
+    const d=ensureDay(dkey(new Date())); const slot=d.top3.find(x=>!x.text.trim());
+    if(!slot) return msg('mMsg','今天的三件事已經滿了，請先到日計畫調整。','err');
+    slot.text=A.title; save(); msg('mMsg','已加入今天的三件事。','ok');
+  },
+  'mto-week'(){
+    const A=curAct(); if(!A||!A.title.trim()) return msg('mMsg','請先填寫行動名稱。','err');
+    const T=D.mandala.themes[S.mcell.t];
+    ensureWeek(isoWeekKey(new Date())).items.push({id:uid(),cat:T.cat,text:A.title,done:false}); save(); msg('mMsg','已加入本週待辦。','ok');
+  },
+  mclear(b){ const c=S.mcell; if(!c||c.k!=='a') return; if(!armed(b,'確定清空？再按一次')) return; D.mandala.themes[c.t].actions[c.a]=mAct(''); save(); render(); },
+};
+
+boot();
+})();
+</script>
+
+</body>
+</html>
