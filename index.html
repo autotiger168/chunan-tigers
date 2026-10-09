@@ -885,6 +885,75 @@ function mEditor(){
     <div class="msg" id="mMsg"></div>
   </section>`;
 }
+/* 可閱讀版匯出 */
+function readableMD(){
+  const L=[], P=D.profile, has=t=>t!=null&&String(t).trim()!=='';
+  const h=(n,t)=>L.push('', '#'.repeat(n)+' '+t, '');
+  const li=(t,d)=>L.push('  '.repeat(d||0)+'- '+t);
+  const p=t=>{ if(has(t)) L.push(...String(t).trim().split(/\n+/), ''); };
+  const ck=b=>b?'✓ ':'○ ';
+  L.push('# 三十年人生計畫','',`匯出時間：${dkey(new Date())} ${hhmm()}`,'');
+  if(has(P.name)) li('稱呼：'+P.name);
+  li('出生年：'+P.birthYear); if(has(P.childBirthYear)) li('孩子出生年：'+P.childBirthYear); if(has(P.motherBirthYear)) li('母親出生年：'+P.motherBirthYear);
+  if(has(P.motto)){ L.push(''); p('座右銘：'+P.motto); }
+  const V=D.vision;
+  h(2,'願景'); p(V.statement);
+  if(has(V.mission)){ h(3,'使命宣言'); p(V.mission); }
+  if(V.values.length){ h(3,'核心價值'); p(V.values.join('、')); }
+  if(V.cards.length){ h(3,'願景告示板');
+    V.cards.forEach(v=>{ li(`**${v.title}**（${cat(v.cat).name}，${v.year} 年，你 ${ageAt(v.year)} 歲，進度 ${vProg(v)}%）`);
+      if(has(v.note)) li(v.note,1);
+      v.missions.forEach(m=>li(ck(m.done)+m.text,1));
+      const gs=(v.goalIds||[]).map(id=>D.goals.find(g=>g.id===id)).filter(Boolean);
+      if(gs.length) li('對應目標：'+gs.map(g=>`${g.title}（${g.progress}%）`).join('、'),1); }); }
+  const M=D.mandala;
+  h(2,'人生 81 宮格'); p('核心目標：'+(M.center||'（未填）'));
+  M.themes.forEach((T,i)=>{ const acts=T.actions.filter(a=>has(a.title)); if(!has(T.title)&&!acts.length) return;
+    h(3,`${i+1}. ${T.title||'主題 '+(i+1)}（${cat(T.cat).name}）`);
+    acts.forEach(a=>{ li(`**${a.title}** — ${a.status}${a.freq?' · '+a.freq:''}${a.start?' · 開始 '+a.start:''}${a.due?' · 檢視 '+a.due:''}`);
+      if(has(a.why)) li('為什麼：'+a.why,1); if(has(a.how)) li('做法：'+a.how,1); if(has(a.measure)) li('衡量：'+a.measure,1);
+      a.steps.forEach(x=>li(ck(x.done)+x.text,1));
+      [...a.log].sort((x,y)=>x.date.localeCompare(y.date)).forEach(l=>li(`${l.date} 紀錄：${l.note}`,1)); }); });
+  h(2,'目標');
+  CATS.forEach(c=>{ const gs=D.goals.filter(g=>g.cat===c.id); if(!gs.length) return; h(3,c.name);
+    gs.forEach(g=>{ li(`**${g.title}**（${g.sub}，${g.horizon}，${g.due}，進度 ${g.progress}%）`); if(has(g.measure)) li('衡量：'+g.measure,1); if(has(g.why)) li('為什麼：'+g.why,1); }); });
+  h(2,'回顧 1978–2026');
+  [['proud','最驕傲的三件事'],['regret','還沒做、會遺憾的事'],['lessons','學到最重要的教訓'],['gratitude','最想感謝的人']].forEach(([k,l])=>{ if(has(D.reflect[k])){ h(3,l); p(D.reflect[k]); } });
+  for(let dec=1970;dec<=2020;dec+=10){ const evs=D.review.filter(e=>e.year>=dec&&e.year<dec+10).sort((a,b)=>a.year-b.year); const note=D.decadeNotes[dec];
+    if(!evs.length&&!has(note)) continue; h(3,`${dec} 年代`); if(has(note)) p(note);
+    evs.forEach(e=>li(`${e.year}　${e.title}（${cat(e.cat).name}）${has(e.note)?'：'+e.note:''}`)); }
+  h(2,'30 年藍圖'); PHASES.forEach(ph=>li(`${ph.name}（${ph.from}–${ph.to}）：${(D.phases[ph.id]||{}).theme||''}`));
+  const ys=Object.keys(D.years).sort().filter(y=>{const Y=D.years[y]; return has(Y.theme)||Y.items.length||has(Y.review);});
+  if(ys.length){ h(2,'年計畫'); ys.forEach(y=>{ const Y=D.years[y]; h(3,`${y} 年（你 ${ageAt(+y)} 歲）`); if(has(Y.theme)) p('年度主題：'+Y.theme);
+    Y.items.forEach(i=>li(ck(i.done)+i.text+`（${cat(i.cat).name}）`)); if(has(Y.review)){ L.push(''); p('年終回顧：'+Y.review); } }); }
+  const ws=Object.keys(D.weeks).sort().filter(k=>{const W=D.weeks[k]; return W.big3.some(has)||W.items.length||Object.values(W.review).some(has);});
+  if(ws.length){ h(2,'週計畫'); ws.forEach(k=>{ const W=D.weeks[k]; h(3,k.replace('-W',' 年第 ')+' 週');
+    W.big3.filter(has).forEach((t,i)=>li(`大石頭 ${i+1}：${t}`)); W.items.forEach(i=>li(ck(i.done)+i.text));
+    if(has(W.review.good)) li('做得好的：'+W.review.good); if(has(W.review.improve)) li('需要調整：'+W.review.improve); if(has(W.review.next)) li('下週重點：'+W.review.next); }); }
+  const ds=Object.keys(D.days).sort().filter(k=>{const T=D.days[k]; return T.top3.some(x=>has(x.text))||Object.values(T.blocks).some(has)||Object.values(T.habits).some(Boolean)||has(T.gratitude)||has(T.note);});
+  if(ds.length){ h(2,'日計畫'); ds.forEach(k=>{ const T=D.days[k], d=parseD(k); h(3,`${k}（星期${WD[d.getDay()]}）`);
+    T.top3.filter(x=>has(x.text)).forEach(x=>li(ck(x.done)+x.text));
+    [['morning','早晨'],['noon','上午'],['afternoon','下午'],['evening','晚上']].forEach(([b,l])=>{ if(has(T.blocks[b])) li(l+'：'+T.blocks[b]); });
+    const hb=D.habits.filter((_,i)=>T.habits[i]); if(hb.length) li('完成的習慣：'+hb.join('、'));
+    if(has(T.gratitude)) li('感恩：'+T.gratitude); if(has(T.note)) li('反思：'+T.note); }); }
+  return L.join('\n').replace(/\n{3,}/g,'\n\n')+'\n';
+}
+function mdToHtml(md,title){
+  const inl=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  const body=md.split('\n').map(line=>{
+    let m;
+    if((m=line.match(/^(#{1,3}) (.*)$/))) return `<h${m[1].length}>${inl(m[2])}</h${m[1].length}>`;
+    if((m=line.match(/^( *)- (.*)$/))) return `<div class="li" style="--d:${m[1].length/2}">${m[1].length?'':'• '}${inl(m[2])}</div>`;
+    if(!line.trim()) return '';
+    return `<p>${inl(line)}</p>`;
+  }).join('\n');
+  return `<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title>
+<style>body{font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;max-width:780px;margin:40px auto;padding:0 20px;line-height:1.75;color:#1b231f;background:#fff}
+h1,h2,h3{font-family:'Noto Serif TC','PMingLiU',serif;line-height:1.35}h1{font-size:30px}h2{font-size:22px;border-bottom:1px solid #cfd8cf;padding-bottom:6px;margin-top:2.2em}h3{font-size:17px;margin-top:1.4em;color:#2c6953}
+p{margin:.4em 0}.li{padding-left:calc(var(--d)*1.6em);margin:.15em 0}.li[style*="--d:1"]{color:#4a5550;font-size:.95em}b{font-weight:700}</style></head><body>
+${body}
+</body></html>`;
+}
 const curAct=()=>{ const c=S.mcell; return c&&c.k==='a'?D.mandala.themes[c.t].actions[c.a]:null; };
 function focusEditor(){ setTimeout(()=>{ const e=$('#meditor'); if(e&&e.scrollIntoView) e.scrollIntoView({behavior:'smooth',block:'start'}); },0); }
 
@@ -1079,6 +1148,12 @@ function vSettings(){
   <section class="panel"><h2>備份與還原</h2>
     <div class="row"><button class="btn" data-act="export">產生加密備份</button><a class="btn" id="dl" hidden>下載備份檔</a><button class="btn" id="cpBtn" data-act="copy-export" hidden>複製</button></div>
     <textarea id="exportTA" rows="3" readonly hidden></textarea>
+    <p class="small muted">加密備份只有這套系統和你的密碼能打開。還原方式：展開下方「還原備份」→ 選擇備份檔 → 輸入當時的密碼 → 按兩次「載入備份」。</p>
+    <div class="panel-head" style="margin-top:8px"><h3>可閱讀版（給人看的）</h3></div>
+    <p class="small muted">把所有內容整理成一般文字。.html 用瀏覽器打開，可直接閱讀或用瀏覽器列印成 PDF；.md 可用記事本、Word、Notion 打開。<b>這兩個檔案沒有加密</b>，請放在安全的地方。</p>
+    <div class="row"><button class="btn" data-act="export-readable">產生可閱讀版</button><a class="btn" id="dlHtml" hidden>下載 .html（網頁）</a><a class="btn" id="dlMd" hidden>下載 .md（文字）</a></div>
+    <div class="msg" id="rdMsg"></div>
+    <textarea id="readTA" rows="14" readonly hidden></textarea>
     <details><summary class="small">還原備份（會覆蓋目前資料）</summary><div class="stack" style="margin-top:8px">
       ${importBox('st')}<div class="field"><label class="label" for="st-pw">備份的密碼（與目前相同可留空）</label><input type="password" id="st-pw"></div></div></details>
     <div class="msg" id="bkMsg"></div></section>
@@ -1297,6 +1372,15 @@ const ACT={
     const A=curAct(); if(!A||!A.title.trim()) return msg('mMsg','請先填寫行動名稱。','err');
     const T=D.mandala.themes[S.mcell.t];
     ensureWeek(isoWeekKey(new Date())).items.push({id:uid(),cat:T.cat,text:A.title,done:false}); save(); msg('mMsg','已加入本週待辦。','ok');
+  },
+  'export-readable'(){
+    const md=readableMD(), t=dkey(new Date()).replace(/-/g,'');
+    const html=mdToHtml(md,`三十年人生計畫 ${dkey(new Date())}`);
+    const a1=$('#dlHtml'), a2=$('#dlMd');
+    a1.href=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'})); a1.download=`人生計畫-${t}.html`; a1.hidden=false;
+    a2.href=URL.createObjectURL(new Blob(['﻿'+md],{type:'text/markdown;charset=utf-8'})); a2.download=`人生計畫-${t}.md`; a2.hidden=false;
+    const ta=$('#readTA'); ta.value=md; ta.hidden=false;
+    msg('rdMsg','已產生，下方是預覽。這兩個檔案沒有加密，請放在安全的地方。','ok');
   },
   mclear(b){ const c=S.mcell; if(!c||c.k!=='a') return; if(!armed(b,'確定清空？再按一次')) return; D.mandala.themes[c.t].actions[c.a]=mAct(''); save(); render(); },
 };
